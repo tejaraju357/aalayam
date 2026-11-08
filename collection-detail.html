@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="colTitle">AALAYAM — Collection Detail & Customizer</title>
+  <meta name="description" id="colMetaDesc" content="Explore and customize curated heirloom brass ritual sets and bundles.">
+  <link rel="icon" href="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Brass_Lotus_Engraving_in_Warm_Light_jmnmju.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- SVG Icons -->
+  <svg style="display: none;">
+    <symbol id="icon-arrow" viewBox="0 0 24 24">
+      <path d="M 5 12 L 19 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <path d="M 12 5 L 19 12 L 12 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </symbol>
+    <symbol id="icon-search" viewBox="0 0 24 24">
+      <path d="M 4.34 4.34 L 0 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(16.66 16.66)"/>
+      <path d="M 0 8 C 0 3.582 3.582 0 8 0 C 12.418 0 16 3.582 16 8 C 16 12.418 12.418 16 8 16 C 3.582 16 0 12.418 0 8 Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(3 3)"/>
+    </symbol>
+    <symbol id="icon-bag" viewBox="0 0 24 24">
+      <path d="M 8 0 C 8 2.209 6.209 4 4 4 C 1.791 4 0 2.209 0 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(8 10)"/>
+      <path d="M 0 0 L 17.794 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(3.103 6.034)"/>
+      <path d="M 0.4 3.467 C 0.14 3.813 0 4.234 0 4.667 L 0 18 C 0 19.105 0.895 20 2 20 L 16 20 C 17.105 20 18 19.105 18 18 L 18 4.667 C 18 4.234 17.86 3.813 17.6 3.467 L 15.6 0.8 C 15.222 0.296 14.63 0 14 0 L 4 0 C 3.37 0 2.778 0.296 2.4 0.8 Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(3 2)"/>
+    </symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24">
+      <path d="M 0 0 L 16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(4 6)"/>
+      <path d="M 0 0 L 16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(4 12)"/>
+      <path d="M 0 0 L 16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(4 18)"/>
+    </symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24">
+      <path d="M 5 5 L 19 19 M 19 5 L 5 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </symbol>
+  </svg>
+
+  <!-- Global Header -->
+  <header class="header-wrapper header-solid" id="headerWrapper">
+    <div class="announcement-bar">
+      <div class="marquee-track">
+        <span>CRAFTED OBJECTS. ROOTED IN HERITAGE.</span>
+      </div>
+      <a href="collection.html" class="collection-link">
+        <span>DISCOVER THE COLLECTION</span>
+        <svg class="svg-icon"><use href="#icon-arrow"></use></svg>
+      </a>
+    </div>
+
+    <nav class="nav-bar">
+      <a href="index.html" class="brand-logo">AALAYAM</a>
+
+      <ul class="nav-links">
+        <li><a href="collection.html" class="active">Collection</a></li>
+        <li><a href="craft.html">Craft</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+
+      <ul class="utility-nav">
+        <li>
+          <button class="theme-toggle-btn" id="themeToggle" title="Toggle Theme" aria-label="Toggle Theme">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+        </li>
+        <li class="hide-mobile">
+          <a href="#search" onclick="openGlobalSearch(); return false;">
+            <svg class="svg-icon"><use href="#icon-search"></use></svg>
+            <span>SEARCH</span>
+          </a>
+        </li>
+        <li>
+          <a href="bag.html">
+            <svg class="svg-icon"><use href="#icon-bag"></use></svg>
+            <span>BAG</span>
+            <span class="bag-badge" style="display: none;">0</span>
+          </a>
+        </li>
+        <li>
+          <button class="mobile-menu-btn" id="openMobileMenu" aria-label="Open Navigation">
+            <svg class="svg-icon" style="width: 22px; height: 22px;"><use href="#icon-menu"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-header">
+      <span class="brand-logo">AALAYAM</span>
+      <button id="closeMobileMenu" aria-label="Close Navigation">
+        <svg class="svg-icon" style="width: 24px; height: 24px;"><use href="#icon-close"></use></svg>
+      </button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li><a href="index.html" class="mobile-link">HOME</a></li>
+      <li><a href="collection.html" class="mobile-link active">COLLECTION</a></li>
+      <li><a href="craft.html" class="mobile-link">CRAFT</a></li>
+      <li><a href="categories.html" class="mobile-link">CATEGORIES</a></li>
+      <li><a href="about.html" class="mobile-link">ABOUT</a></li>
+      <li><a href="bag.html" class="mobile-link">YOUR BAG</a></li>
+    </ul>
+    <div style="font-size: 11px; letter-spacing: 0.16em; color: rgba(243, 235, 221, 0.5);">
+      © AALAYAM. ROOTED IN HERITAGE.
+    </div>
+  </div>
+
+  <main>
+    <!-- Breadcrumb -->
+    <div class="pdp-breadcrumb-wrap">
+      <div class="pdp-breadcrumb">
+        <a href="index.html">HOME</a>
+        <span class="sep">/</span>
+        <a href="collection.html">COLLECTIONS</a>
+        <span class="sep">/</span>
+        <span class="current" id="breadSetName">THE MORNING RITUAL SET</span>
+      </div>
+    </div>
+
+    <!-- Collection Hero Banner -->
+    <section class="customizer-hero-banner">
+      <div class="customizer-hero-inner">
+        <div class="customizer-hero-visual">
+          <img id="setMainImage" src="" alt="Aalayam Ritual Set">
+          <div class="bundle-live-badge" id="setDiscountBadge">15% BUNDLE SAVINGS APPLIED</div>
+        </div>
+
+        <div class="customizer-hero-info">
+          <span class="kicker" id="setKicker">AALAYAM SET / 01</span>
+          <h1 id="setName">THE MORNING RITUAL SET</h1>
+          <p class="tagline" id="setTagline">Everything needed to welcome the first light of day with calm and clarity.</p>
+          <p class="desc" id="setDesc">A complete four-piece arrangement containing our iconic solid brass bell, hand-finished incense holder, small deepa diya, and lathe-turned kumkum box.</p>
+          
+          <div class="customizer-perks-row">
+            <span><span class="icon">✦</span> 100% Solid Brass</span>
+            <span><span class="icon">✦</span> Handcrafted in India</span>
+            <span><span class="icon">✦</span> Complimentary Silk-Tied Box</span>
+            <span><span class="icon">✦</span> Free Shipping</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive 2-Column Customizer Workspace -->
+    <section class="customizer-workspace">
+      <!-- Left: Items Management (Remove & Add) -->
+      <div class="customizer-items-manager">
+        <!-- Included Items -->
+        <div>
+          <div class="manager-section-header">
+            <h2>CURRENT ITEMS IN THIS SET</h2>
+            <span class="sub" id="itemsCountSubtitle">4 Objects Included (You can remove or add items)</span>
+          </div>
+
+          <div class="bundle-items-list" id="includedItemsList">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- Add Compatible Objects Shelf -->
+        <div>
+          <div class="manager-section-header">
+            <h2>+ ADD OBJECTS TO THIS SET</h2>
+            <span class="sub">Expand your sanctuary with dimensionally matched pieces</span>
+          </div>
+
+          <div class="available-addons-grid" id="addonsGrid">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- Accordions: Provenance & Gifting Details -->
+        <div class="pdp-accordion-group" style="margin-top: 10px;">
+          <div class="pdp-accordion-item active">
+            <button class="pdp-accordion-header" onclick="togglePdpAccordion(this)">
+              <span>HERITAGE STORY & RITUAL HARMONY</span>
+              <span class="acc-icon">+</span>
+            </button>
+            <div class="pdp-accordion-body">
+              <div class="pdp-accordion-content" id="setStory">
+                Morning prayers call for pure metal vessels that awaken the senses through sound, fragrance, and sacred flame. Each object in this set is dimensionally matched for cohesive arrangement on home altars or mandir consoles.
+              </div>
+            </div>
+          </div>
+
+          <div class="pdp-accordion-item">
+            <button class="pdp-accordion-header" onclick="togglePdpAccordion(this)">
+              <span>SIGNATURE BUNDLE PACKAGING</span>
+              <span class="acc-icon">+</span>
+            </button>
+            <div class="pdp-accordion-body">
+              <div class="pdp-accordion-content">
+                Every Aalayam set is nestled in custom unbleached cotton dust bags with brass care guidelines and boxed in our signature gold-embossed keepsake presentation box. Ideal for milestone gifting, housewarmings, or ceremonial blessing.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Sticky Live Bundle Summary -->
+      <div class="customizer-summary-panel">
+        <div class="summary-header">
+          <span class="kicker">YOUR CUSTOMIZED BUNDLE</span>
+          <h3 id="summarySetName">THE MORNING RITUAL SET</h3>
+        </div>
+
+        <div class="summary-items-preview">
+          <div class="preview-count-row">
+            <span>INCLUDED PIECES</span>
+            <span id="summaryCountTag">4 Items</span>
+          </div>
+          <div class="preview-tags-wrap" id="summaryTagsWrap">
+            <!-- Item pills -->
+          </div>
+        </div>
+
+        <!-- Dynamic Live Pricing -->
+        <div class="pricing-breakdown-card">
+          <div class="pricing-row">
+            <span>Combined Retail Value</span>
+            <span id="summaryOriginalTotal">₹6,900</span>
+          </div>
+          <div class="pricing-row discount-row">
+            <span id="summaryDiscountLabel">Bundle Special Savings (14% OFF)</span>
+            <span id="summarySavingsAmount">− ₹950</span>
+          </div>
+          <div class="pricing-row total-row">
+            <span>SET PRICE</span>
+            <span id="summaryFinalPrice">₹5,950</span>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="summary-actions-area">
+          <button class="btn-bundle-bag" id="addBundleToBagBtn">
+            <svg class="svg-icon" style="width: 16px; height: 16px;"><use href="#icon-bag"></use></svg>
+            <span>ADD CUSTOMIZED SET TO BAG</span>
+          </button>
+
+          <button class="btn-bundle-buy" id="buyBundleNowBtn">
+            <span>BUY THIS SET NOW</span>
+            <svg class="svg-icon"><use href="#icon-arrow"></use></svg>
+          </button>
+        </div>
+
+        <p class="summary-guarantee-note">
+          Taxes included · Free express delivery across India · 7-day hassle-free replacement.
+        </p>
+      </div>
+    </section>
+
+    <!-- CORPORATE & CUSTOM ENQUIRY (IN THE LAST) -->
+    <section class="section-enquiry" id="enquiry">
+      <div class="enquiry-layout">
+        <div class="enquiry-intro">
+          <span class="kicker">CORPORATE & CUSTOM</span>
+          <h2>Let’s make something meaningful.</h2>
+          <p>Tell us what you are planning, and our team will come back with thoughtful recommendations, quantities, budgets and timelines.</p>
+          <p>We welcome requests for celebrations, hospitality, corporate gifting and one-of-a-kind commissions.</p>
+        </div>
+
+        <form class="enquiry-form" onsubmit="event.preventDefault(); showToast('Enquiry received. We will connect soon.'); this.reset();">
+          <div class="form-group">
+            <label for="name">NAME</label>
+            <input type="text" id="name" name="name" required placeholder="Your full name">
+          </div>
+
+          <div class="form-group">
+            <label for="email">EMAIL</label>
+            <input type="email" id="email" name="email" required placeholder="name@company.com">
+          </div>
+
+          <div class="form-group">
+            <label for="phone">PHONE</label>
+            <input type="tel" id="phone" name="phone" placeholder="+91 00000 00000">
+          </div>
+
+          <div class="form-group">
+            <label for="company">COMPANY</label>
+            <input type="text" id="company" name="company" placeholder="Organization name">
+          </div>
+
+          <div class="form-group">
+            <label for="quantity">QUANTITY</label>
+            <input type="text" id="quantity" name="quantity" placeholder="Estimated pieces">
+          </div>
+
+          <div class="form-group">
+            <label for="budget">BUDGET</label>
+            <input type="text" id="budget" name="budget" placeholder="Estimated budget">
+          </div>
+
+          <div class="form-group full-width">
+            <label for="timeline">TIMELINE</label>
+            <select id="timeline" name="timeline">
+              <option value="2-4 weeks">2–4 weeks</option>
+              <option value="1-2 months">1–2 months</option>
+              <option value="3+ months">3+ months</option>
+            </select>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="message">TELL US MORE</label>
+            <textarea id="message" name="message" rows="4" placeholder="Tell us about your occasion, requirements or ideas..."></textarea>
+          </div>
+
+          <div class="form-submit-row">
+            <button type="submit" class="btn-solid-dark">
+              <span>SEND ENQUIRY</span>
+              <svg class="svg-icon"><use href="#icon-arrow"></use></svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="footer-global">
+    <div class="footer-main-grid">
+      <div class="footer-brand-col">
+        <h3 class="footer-logo">AALAYAM</h3>
+        <p class="tagline-italic">Aalayam — Temple of Art</p>
+        <p class="tagline-caps">OBJECTS OF HERITAGE.</p>
+      </div>
+
+      <div class="footer-nav-grid">
+        <div class="footer-col">
+          <h4>DISCOVER</h4>
+          <ul>
+            <li><a href="collection.html">Collection</a></li>
+            <li><a href="craft.html">Craft</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>CATEGORIES</h4>
+          <ul>
+            <li><a href="categories.html?filter=diyas">Diyas</a></li>
+            <li><a href="categories.html?filter=statues">Statues</a></li>
+            <li><a href="categories.html?filter=brass">Brass</a></li>
+            <li><a href="categories.html?filter=pooja">Pooja</a></li>
+            <li><a href="categories.html?filter=home">Home</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>HELP</h4>
+          <ul>
+            <li><a href="#enquiry">Contact</a></li>
+            <li><a href="craft.html#care">Shipping</a></li>
+            <li><a href="craft.html#care">Returns</a></li>
+            <li><a href="craft.html#care">Care</a></li>
+            <li><a href="about.html">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>FOLLOW</h4>
+          <ul>
+            <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.pinterest.com/" target="_blank" rel="noopener">Pinterest</a></li>
+            <li><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© AALAYAM</div>
+      <div class="legal-links">
+        <a href="about.html">PRIVACY</a>
+        <a href="about.html">TERMS</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // ----------------------------------------------------
+    // Collection Detail & Bundle Customizer Engine
+    // ----------------------------------------------------
+    let currentSet = null;
+    let includedIds = [];
+    let availableAddonIds = [];
+
+    function getParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    function initCustomizer() {
+      const setId = getParam('set') || getParam('collection') || 'set-01';
+      currentSet = getSetById(setId);
+
+      // Clone default item IDs
+      includedIds = [...currentSet.defaultItemIds];
+      
+      // Determine add-ons: start with set's optionalAddonIds + any other catalog products not in included
+      availableAddonIds = [...currentSet.optionalAddonIds];
+      getAllProducts().forEach(p => {
+        if (!includedIds.includes(p.id) && !availableAddonIds.includes(p.id)) {
+          availableAddonIds.push(p.id);
+        }
+      });
+
+      // Update Page Headers & Story
+      document.title = `${currentSet.name} — AALAYAM Ritual Sets`;
+      document.getElementById('breadSetName').textContent = currentSet.name;
+      document.getElementById('setName').textContent = currentSet.name;
+      document.getElementById('summarySetName').textContent = currentSet.name;
+      document.getElementById('setKicker').textContent = currentSet.kicker;
+      document.getElementById('setTagline').textContent = currentSet.tagline;
+      document.getElementById('setDesc').textContent = currentSet.desc;
+      document.getElementById('setStory').textContent = currentSet.story;
+      document.getElementById('setMainImage').src = currentSet.image;
+      document.getElementById('setDiscountBadge').textContent = `${currentSet.discountPct}% BUNDLE SAVINGS APPLIED`;
+      document.getElementById('summaryDiscountLabel').textContent = `Bundle Special Savings (${currentSet.discountPct}% OFF)`;
+
+      renderIncludedItems();
+      renderAddons();
+      updatePricingSummary();
+
+      // Button handlers
+      document.getElementById('addBundleToBagBtn').onclick = addCustomizedBundleToBag;
+      document.getElementById('buyBundleNowBtn').onclick = buyCustomizedBundleNow;
+    }
+
+    function renderIncludedItems() {
+      const listContainer = document.getElementById('includedItemsList');
+      listContainer.innerHTML = '';
+
+      if (includedIds.length === 0) {
+        listContainer.innerHTML = `
+          <div style="background: var(--bg-card); padding: 36px; text-align: center; border: 1px dashed var(--border-medium);">
+            <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 12px;">All items have been removed from this bundle.</p>
+            <p style="font-size: 12px; color: var(--color-gold);">Add items below to rebuild your custom set.</p>
+          </div>
+        `;
+        document.getElementById('itemsCountSubtitle').textContent = '0 Objects Included (Add items below)';
+        return;
+      }
+
+      document.getElementById('itemsCountSubtitle').textContent = `${includedIds.length} Object${includedIds.length === 1 ? '' : 's'} Included in This Bundle`;
+
+      includedIds.forEach(id => {
+        const item = getProductById(id);
+        if (!item) return;
+
+        const card = document.createElement('div');
+        card.className = 'bundle-item-card';
+        card.innerHTML = `
+          <div class="bundle-item-thumb">
+            <img src="${item.images[0]}" alt="${item.name}">
+          </div>
+          <div class="bundle-item-details">
+            <div class="bundle-item-code">${item.code}</div>
+            <h3 class="bundle-item-name">
+              <a href="product.html?id=${item.id}" target="_blank" title="View details">${item.name} ↗</a>
+            </h3>
+            <div class="bundle-item-meta">${item.material} · ${item.dimensions}</div>
+          </div>
+          <div class="bundle-item-price-col">
+            <div class="bundle-item-price">₹${item.price.toLocaleString('en-IN')}</div>
+            <button class="btn-remove-item" onclick="removeItemFromBundle('${item.id}')">✕ Remove from Set</button>
+          </div>
+        `;
+        listContainer.appendChild(card);
+      });
+    }
+
+    function renderAddons() {
+      const grid = document.getElementById('addonsGrid');
+      grid.innerHTML = '';
+
+      // Show items in availableAddonIds that are not in includedIds
+      const validAddons = availableAddonIds.filter(id => !includedIds.includes(id));
+
+      if (validAddons.length === 0) {
+        grid.innerHTML = '<div style="grid-column: span 2; padding: 20px; color: var(--text-muted); font-size: 13px;">All available objects have been added to this set.</div>';
+        return;
+      }
+
+      validAddons.slice(0, 6).forEach(id => {
+        const item = getProductById(id);
+        if (!item) return;
+
+        const card = document.createElement('div');
+        card.className = 'addon-card';
+        card.innerHTML = `
+          <div class="addon-thumb">
+            <img src="${item.images[0]}" alt="${item.name}">
+          </div>
+          <div class="addon-info">
+            <div class="addon-name">${item.name}</div>
+            <div class="addon-price">₹${item.price.toLocaleString('en-IN')}</div>
+          </div>
+          <button class="btn-add-addon" onclick="addItemToBundle('${item.id}')">+ Add to Set</button>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function removeItemFromBundle(id) {
+      const item = getProductById(id);
+      includedIds = includedIds.filter(itemId => itemId !== id);
+      if (!availableAddonIds.includes(id)) {
+        availableAddonIds.unshift(id);
+      }
+      renderIncludedItems();
+      renderAddons();
+      updatePricingSummary();
+      showToast(`Removed "${item.name}" from set`);
+    }
+
+    function addItemToBundle(id) {
+      const item = getProductById(id);
+      if (!includedIds.includes(id)) {
+        includedIds.push(id);
+      }
+      renderIncludedItems();
+      renderAddons();
+      updatePricingSummary();
+      showToast(`Added "${item.name}" to set`);
+    }
+
+    function updatePricingSummary() {
+      const pricing = calculateBundlePricing(includedIds, currentSet.discountPct);
+
+      document.getElementById('summaryCountTag').textContent = `${pricing.itemCount} Object${pricing.itemCount === 1 ? '' : 's'}`;
+      document.getElementById('summaryOriginalTotal').textContent = `₹${pricing.originalTotal.toLocaleString('en-IN')}`;
+      document.getElementById('summarySavingsAmount').textContent = `− ₹${pricing.discountAmount.toLocaleString('en-IN')}`;
+      document.getElementById('summaryFinalPrice').textContent = `₹${pricing.finalPrice.toLocaleString('en-IN')}`;
+
+      // Render mini tags of included items
+      const tagsWrap = document.getElementById('summaryTagsWrap');
+      tagsWrap.innerHTML = '';
+      if (includedIds.length === 0) {
+        tagsWrap.innerHTML = '<span style="font-size: 11px; color: var(--text-muted);">No items selected</span>';
+      } else {
+        includedIds.forEach(id => {
+          const item = getProductById(id);
+          if (item) {
+            const pill = document.createElement('span');
+            pill.className = 'preview-item-pill';
+            pill.textContent = `✦ ${item.name}`;
+            tagsWrap.appendChild(pill);
+          }
+        });
+      }
+
+      // Disable/enable action buttons
+      const addBagBtn = document.getElementById('addBundleToBagBtn');
+      const buyNowBtn = document.getElementById('buyBundleNowBtn');
+      if (pricing.itemCount === 0) {
+        addBagBtn.disabled = true;
+        buyNowBtn.disabled = true;
+        addBagBtn.style.opacity = '0.5';
+        buyNowBtn.style.opacity = '0.5';
+      } else {
+        addBagBtn.disabled = false;
+        buyNowBtn.disabled = false;
+        addBagBtn.style.opacity = '1';
+        buyNowBtn.style.opacity = '1';
+      }
+    }
+
+    function addCustomizedBundleToBag() {
+      if (includedIds.length === 0) {
+        showToast('Please add at least one item to your bundle.');
+        return;
+      }
+      const pricing = calculateBundlePricing(includedIds, currentSet.discountPct);
+      const itemsListStr = includedIds.map(id => getProductById(id).name).join(', ');
+
+      addToCart({
+        id: `custom-bundle-${currentSet.id}-${Date.now().toString().slice(-4)}`,
+        name: `${currentSet.name} (Customized ${pricing.itemCount}-Piece Set)`,
+        code: `${currentSet.code} / CUSTOM`,
+        price: pricing.finalPrice,
+        image: currentSet.image,
+        material: `Curated Set: ${itemsListStr}`,
+        qty: 1
+      });
+    }
+
+    function buyCustomizedBundleNow() {
+      addCustomizedBundleToBag();
+      window.location.href = 'bag.html';
+    }
+
+    function togglePdpAccordion(header) {
+      const item = header.parentElement;
+      item.classList.toggle('active');
+    }
+
+    document.addEventListener('DOMContentLoaded', initCustomizer);
+  </script>
+</body>
+</html>

@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AALAYAM — The Ritual Collection</title>
+  <meta name="description" content="Curated sets of objects for daily rituals, festive moments and meaningful gifting.">
+  <link rel="icon" href="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Brass_Lotus_Engraving_in_Warm_Light_jmnmju.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    /* =========================================================
+       COLLECTION PAGE: RICH VISUAL STORYTELLING
+       ========================================================= */
+
+    /* Hero Editorial Statement */
+    .collection-intro-banner {
+      padding: 60px 48px;
+      max-width: 1400px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .collection-intro-banner h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(34px, 4.5vw, 56px);
+      font-weight: 400;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+
+    .collection-intro-banner p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto 36px auto;
+      line-height: 1.7;
+    }
+
+    /* REPLACED PLAIN BOXES: Rich Photographic Collection Showcase */
+    .visual-collection-showcase {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 0 48px 80px 48px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }}
+
+    .visual-collection-card {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3 / 4;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 32px 24px;
+      color: #f3ebdd;
+      text-decoration: none;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+      transition: var(--transition);
+    }
+
+    .visual-collection-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(20,16,13,0.1) 0%, rgba(20,16,13,0.3) 40%, rgba(20,16,13,0.92) 100%);
+      z-index: 2;
+      transition: background 0.4s ease;
+    }
+
+    .visual-collection-card:hover::before {
+      background: linear-gradient(180deg, rgba(20,16,13,0.05) 0%, rgba(20,16,13,0.2) 30%, rgba(20,16,13,0.95) 100%);
+    }
+
+    .visual-collection-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .visual-collection-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .card-content-front {
+      position: relative;
+      z-index: 3;
+    }
+
+    .card-content-front .kicker-light {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .card-content-front h3 {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 6px;
+      line-height: 1.2;
+    }
+
+    .card-content-front p {
+      font-size: 12px;
+      color: rgba(243, 235, 221, 0.85);
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .card-content-front .card-action-link {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Sets Section */
+    .sets-section {
+      background-color: var(--bg-card);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      padding: 120px 48px;
+    }
+
+    .sets-section-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .featured-set-card {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 64px;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-light);
+      margin-bottom: 80px;
+      overflow: hidden;
+      align-items: center;
+      box-shadow: var(--card-shadow);
+    }
+
+    .featured-set-img {
+      width: 100%;
+      height: 100%;
+      min-height: 520px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .featured-set-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1s ease;
+    }
+
+    .featured-set-card:hover .featured-set-img img {
+      transform: scale(1.04);
+    }
+
+    .featured-set-info {
+      padding: 48px 48px 48px 0;
+    }
+
+    .bundle-badge {
+      display: inline-block;
+      background: rgba(169, 130, 74, 0.15);
+      border: 1px solid var(--color-gold);
+      color: var(--color-gold);
+      padding: 4px 12px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .featured-set-info h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(34px, 4.2vw, 48px);
+      font-weight: 400;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
+    .featured-set-info p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .set-includes-box {
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      padding: 16px 0;
+      margin-bottom: 24px;
+    }
+
+    .set-includes-box .inc-title {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .set-items-tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .set-item-tag {
+      background: var(--bg-card);
+      border: 1px solid var(--border-medium);
+      padding: 6px 12px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--text-primary);
+    }
+
+    .set-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+
+    .set-price-row .price {
+      font-family: var(--font-serif);
+      font-size: 36px;
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .set-price-row .orig {
+      font-size: 14px;
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+
+    .set-price-row .savings {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--color-gold);
+      text-transform: uppercase;
+    }
+
+    /* Sets Grid */
+    .sets-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+    }
+
+    .set-grid-card {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-light);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: var(--transition);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+    }
+
+    .set-grid-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.1);
+      border-color: var(--color-gold);
+    }
+
+    .set-grid-img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: var(--border-light);
+    }
+
+    .set-grid-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+
+    .set-grid-card:hover .set-grid-img img {
+      transform: scale(1.06);
+    }
+
+    .set-grid-content {
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .set-grid-content h3 {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .set-grid-content p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+
+    .set-grid-tags {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      color: var(--color-gold);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .set-grid-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-light);
+      padding-top: 16px;
+    }
+
+    .set-grid-bottom .price {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    @media (max-width: 1100px) {
+      .visual-collection-showcase {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .featured-set-card {
+        grid-template-columns: 1fr;
+      }
+      .featured-set-info {
+        padding: 36px 24px;
+      }
+      .sets-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .visual-collection-showcase {
+        grid-template-columns: 1fr;
+      }
+      .collection-intro-banner, .visual-collection-showcase, .sets-section {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- SVG Sprites -->
+  <svg style="display: none;">
+    <symbol id="icon-arrow" viewBox="0 0 24 24">
+      <path d="M 5 12 L 19 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <path d="M 12 5 L 19 12 L 12 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </symbol>
+    <symbol id="icon-search" viewBox="0 0 24 24">
+      <path d="M 4.34 4.34 L 0 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(16.66 16.66)"/>
+      <path d="M 0 8 C 0 3.582 3.582 0 8 0 C 12.418 0 16 3.582 16 8 C 16 12.418 12.418 16 8 16 C 3.582 16 0 12.418 0 8 Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(3 3)"/>
+    </symbol>
+    <symbol id="icon-bag" viewBox="0 0 24 24">
+      <path d="M 8 0 C 8 2.209 6.209 4 4 4 C 1.791 4 0 2.209 0 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(8 10)"/>
+      <path d="M 0 0 L 17.794 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(3.103 6.034)"/>
+      <path d="M 0.4 3.467 C 0.14 3.813 0 4.234 0 4.667 L 0 18 C 0 19.105 0.895 20 2 20 L 16 20 C 17.105 20 18 19.105 18 18 L 18 4.667 C 18 4.234 17.86 3.813 17.6 3.467 L 15.6 0.8 C 15.222 0.296 14.63 0 14 0 L 4 0 C 3.37 0 2.778 0.296 2.4 0.8 Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(3 2)"/>
+    </symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24">
+      <path d="M 0 0 L 16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(4 6)"/>
+      <path d="M 0 0 L 16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(4 12)"/>
+      <path d="M 0 0 L 16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(4 18)"/>
+    </symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24">
+      <path d="M 5 5 L 19 19 M 19 5 L 5 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </symbol>
+  </svg>
+
+  <!-- Global Header -->
+  <header class="header-wrapper header-solid" id="headerWrapper">
+    <div class="announcement-bar">
+      <div class="marquee-track">
+        <span>CRAFTED OBJECTS. ROOTED IN HERITAGE.</span>
+      </div>
+      <a href="collection.html" class="collection-link">
+        <span>DISCOVER THE COLLECTION</span>
+        <svg class="svg-icon"><use href="#icon-arrow"></use></svg>
+      </a>
+    </div>
+
+    <nav class="nav-bar">
+      <a href="index.html" class="brand-logo">AALAYAM</a>
+
+      <ul class="nav-links">
+        <li><a href="collection.html" class="active">Collection</a></li>
+        <li><a href="craft.html">Craft</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+
+      <ul class="utility-nav">
+        <li>
+          <button class="theme-toggle-btn" id="themeToggle" title="Toggle Theme" aria-label="Toggle Theme">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+        </li>
+        <li class="hide-mobile">
+          <a href="#search" onclick="openGlobalSearch(); return false;">
+            <svg class="svg-icon"><use href="#icon-search"></use></svg>
+            <span>SEARCH</span>
+          </a>
+        </li>
+        <li>
+          <a href="bag.html">
+            <svg class="svg-icon"><use href="#icon-bag"></use></svg>
+            <span>BAG</span>
+            <span class="bag-badge" style="display: none;">0</span>
+          </a>
+        </li>
+        <li>
+          <button class="mobile-menu-btn" id="openMobileMenu" aria-label="Open Navigation">
+            <svg class="svg-icon" style="width: 22px; height: 22px;"><use href="#icon-menu"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-header">
+      <span class="brand-logo">AALAYAM</span>
+      <button id="closeMobileMenu" aria-label="Close Navigation">
+        <svg class="svg-icon" style="width: 24px; height: 24px;"><use href="#icon-close"></use></svg>
+      </button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li><a href="index.html" class="mobile-link">HOME</a></li>
+      <li><a href="collection.html" class="mobile-link active">COLLECTION</a></li>
+      <li><a href="craft.html" class="mobile-link">CRAFT</a></li>
+      <li><a href="categories.html" class="mobile-link">CATEGORIES</a></li>
+      <li><a href="about.html" class="mobile-link">ABOUT</a></li>
+      <li><a href="bag.html" class="mobile-link">YOUR BAG</a></li>
+    </ul>
+    <div style="font-size: 11px; letter-spacing: 0.16em; color: rgba(243, 235, 221, 0.5);">
+      © AALAYAM. ROOTED IN HERITAGE.
+    </div>
+  </div>
+
+  <main>
+    <!-- Header -->
+    <section class="page-header">
+      <span class="kicker">AALAYAM / CURATED EDITIONS</span>
+      <h1>THE RITUAL COLLECTION</h1>
+      <p>Curated sets of objects for daily rituals, festive gatherings, and meaningful heirloom gifting.</p>
+    </section>
+
+    <!-- Visual Story Intro -->
+    <section class="collection-intro-banner">
+      <h2>EVERY OBJECT HAS A PLACE.</h2>
+      <p>Rituals are not performed for display; they are grounding acts that anchor daily life. We bring related objects together so your home holds a cohesive harmony of warmth, weight and light.</p>
+    </section>
+
+    <!-- REPLACED 4 PLAIN BOXES: Photographic Visual Showcase -->
+    <div class="visual-collection-showcase">
+      <!-- 1. Pooja -->
+      <a href="collection-detail.html?set=pooja" class="visual-collection-card">
+        <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051162/aalayam1_2_tkqv2u.jpg" alt="Pooja Rituals">
+        <div class="card-content-front">
+          <span class="kicker-light">RITUAL OBJECTS</span>
+          <h3>POOJA</h3>
+          <p>Sacred vessels, bells and deepams crafted for daily prayers.</p>
+          <span class="card-action-link">EXPLORE POOJA →</span>
+        </div>
+      </a>
+
+      <!-- 2. Heirloom Brass -->
+      <a href="collection-detail.html?set=brass" class="visual-collection-card">
+        <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Sunlit_Antique_Brass_Urn_with_Flowers_aonm8t.png" alt="Heirloom Brass">
+        <div class="card-content-front">
+          <span class="kicker-light">MATERIAL / ALLOY</span>
+          <h3>HEIRLOOM BRASS</h3>
+          <p>Pure hand-poured brassware with natural living patinas.</p>
+          <span class="card-action-link">EXPLORE BRASS →</span>
+        </div>
+      </a>
+
+      <!-- 3. Home Sanctuary -->
+      <a href="collection-detail.html?set=home" class="visual-collection-card">
+        <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Brass_Lotus_Engraving_in_Warm_Light_jmnmju.png" alt="Home Sanctuary">
+        <div class="card-content-front">
+          <span class="kicker-light">CONTEMPORARY INTERIORS</span>
+          <h3>HOME SANCTUARY</h3>
+          <p>Bowls, candle stands, and urns that elevate any room.</p>
+          <span class="card-action-link">EXPLORE HOME →</span>
+        </div>
+      </a>
+
+      <!-- 4. Gifting Sets -->
+      <a href="collection-detail.html?set=gifting" class="visual-collection-card">
+        <img src="https://framerusercontent.com/images/XN1TT1V5VGs1bx8Knwt8WIBxYA.png" alt="Meaningful Gifting">
+        <div class="card-content-front">
+          <span class="kicker-light">CURATED GIFTS</span>
+          <h3>MILESTONE GIFTING</h3>
+          <p>Thoughtful pairings ready for weddings, housewarmings and anniversaries.</p>
+          <span class="card-action-link">EXPLORE GIFTING →</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Sets Section -->
+    <section class="sets-section">
+      <div class="sets-section-inner">
+        <!-- Featured Set: Set 01 -->
+        <div class="featured-set-card">
+          <div class="featured-set-img">
+            <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051162/aalayam1_2_tkqv2u.jpg" alt="The Morning Ritual Set" loading="lazy">
+          </div>
+          <div class="featured-set-info">
+            <span class="bundle-badge">Signature Complete Bundle</span>
+            <span class="kicker" style="display: block;">AALAYAM SET / 01</span>
+            <h2>THE MORNING RITUAL SET</h2>
+            <p>A complete four-piece arrangement containing our iconic solid brass bell, hand-finished incense holder, small deepa diya, and lathe-turned kumkum box. Everything needed to welcome the first light of day.</p>
+            
+            <div class="set-includes-box">
+              <span class="inc-title">WHAT'S INCLUDED IN THIS SET:</span>
+              <div class="set-items-tags">
+                <span class="set-item-tag">1× Brass Diya</span>
+                <span class="set-item-tag">1× Incense Holder</span>
+                <span class="set-item-tag">1× Kumkum Box</span>
+                <span class="set-item-tag">1× Resonant Puja Bell</span>
+              </div>
+            </div>
+
+            <div class="set-price-row">
+              <span class="price">₹5,950</span>
+              <span class="orig">₹6,900</span>
+              <span class="savings">Save ₹950 (14% OFF)</span>
+            </div>
+
+            <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+              <a href="collection-detail.html?set=set-01" class="btn-solid-dark" style="text-decoration: none;">
+                <span>CUSTOMIZE & EDIT THIS SET</span>
+                <svg class="svg-icon"><use href="#icon-arrow"></use></svg>
+              </a>
+              <button class="btn-pill" onclick="addToCart({id: 'set-01', name: 'THE MORNING RITUAL SET', code: 'AALAYAM SET / 01', price: 5950, image: 'https://res.cloudinary.com/deukqrxtt/image/upload/v1790051162/aalayam1_2_tkqv2u.jpg', material: 'Complete 4-Piece Brass Set'})">
+                <span>ADD COMPLETE SET TO BAG</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 40px; text-align: center;">
+          <span class="kicker">CURATED COMBINATIONS</span>
+          <h2 class="serif-heading" style="font-size: clamp(32px, 4vw, 46px); color: var(--text-primary);">Sets For Special Moments</h2>
+        </div>
+
+        <!-- 3 Sets Grid -->
+        <div class="sets-grid">
+          <!-- Set 02 -->
+          <div class="set-grid-card">
+            <div class="set-grid-img">
+              <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Sunlit_Antique_Brass_Urn_with_Flowers_aonm8t.png" alt="The Festival Puja Set" loading="lazy">
+            </div>
+            <div class="set-grid-content">
+              <span class="kicker">AALAYAM SET / 02</span>
+              <h3><a href="collection-detail.html?set=set-02" style="color: inherit; text-decoration: none;">THE FESTIVAL PUJA SET</a></h3>
+              <p>A generous ritual arrangement featuring our heritage brass thali, tall deepam stand, small diya, and kumkum casket for Diwali and festive family occasions.</p>
+              <div class="set-grid-tags">THALI · DEEPAM STAND · DIYA · KUMKUM</div>
+              <div style="margin-bottom: 16px;"><a href="collection-detail.html?set=set-02" style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; color: var(--color-gold); text-decoration: none; text-transform: uppercase;">CUSTOMIZE & VIEW ITEMS →</a></div>
+              <div class="set-grid-bottom">
+                <div>
+                  <span class="price">₹7,450</span>
+                  <span style="font-size: 12px; color: var(--text-muted); text-decoration: line-through; margin-left: 6px;">₹8,800</span>
+                </div>
+                <button class="btn-pill" onclick="addToCart({id: 'set-02', name: 'THE FESTIVAL PUJA SET', code: 'AALAYAM SET / 02', price: 7450, image: 'https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Sunlit_Antique_Brass_Urn_with_Flowers_aonm8t.png', material: 'Festival Brass Set'})">
+                  <span>ADD TO BAG</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Set 04 -->
+          <div class="set-grid-card">
+            <div class="set-grid-img">
+              <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Brass_Lotus_Engraving_in_Warm_Light_jmnmju.png" alt="The Gifting Ritual Set" loading="lazy">
+            </div>
+            <div class="set-grid-content">
+              <span class="kicker">AALAYAM SET / 04</span>
+              <h3><a href="collection-detail.html?set=set-04" style="color: inherit; text-decoration: none;">THE GIFTING RITUAL SET</a></h3>
+              <p>Our most requested wedding gift edit. Pairs a 12-inch hand-hammered brass tray with our sculpted lotus bowl, kumkum box, and diya in signature packaging.</p>
+              <div class="set-grid-tags">TRAY · LOTUS BOWL · KUMKUM · DIYA</div>
+              <div style="margin-bottom: 16px;"><a href="collection-detail.html?set=set-04" style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; color: var(--color-gold); text-decoration: none; text-transform: uppercase;">CUSTOMIZE & VIEW ITEMS →</a></div>
+              <div class="set-grid-bottom">
+                <div>
+                  <span class="price">₹8,250</span>
+                  <span style="font-size: 12px; color: var(--text-muted); text-decoration: line-through; margin-left: 6px;">₹9,600</span>
+                </div>
+                <button class="btn-pill" onclick="addToCart({id: 'set-04', name: 'THE GIFTING RITUAL SET', code: 'AALAYAM SET / 04', price: 8250, image: 'https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Brass_Lotus_Engraving_in_Warm_Light_jmnmju.png', material: 'Gifting Brass Set'})">
+                  <span>ADD TO BAG</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Set 03 -->
+          <div class="set-grid-card">
+            <div class="set-grid-img">
+              <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051162/aalayam1_2_tkqv2u.jpg" alt="The Quiet Evening Set" loading="lazy">
+            </div>
+            <div class="set-grid-content">
+              <span class="kicker">AALAYAM SET / 03</span>
+              <h3><a href="collection-detail.html?set=set-03" style="color: inherit; text-decoration: none;">THE QUIET EVENING SET</a></h3>
+              <p>Curated for peaceful living rooms and slower twilight hours: an incense holder, brass vessel bowl, warm diya, and weighted taper candle holder.</p>
+              <div class="set-grid-tags">INCENSE · VESSEL · DIYA · CANDLE</div>
+              <div style="margin-bottom: 16px;"><a href="collection-detail.html?set=set-03" style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; color: var(--color-gold); text-decoration: none; text-transform: uppercase;">CUSTOMIZE & VIEW ITEMS →</a></div>
+              <div class="set-grid-bottom">
+                <div>
+                  <span class="price">₹6,850</span>
+                  <span style="font-size: 12px; color: var(--text-muted); text-decoration: line-through; margin-left: 6px;">₹7,900</span>
+                </div>
+                <button class="btn-pill" onclick="addToCart({id: 'set-03', name: 'THE QUIET EVENING SET', code: 'AALAYAM SET / 03', price: 6850, image: 'https://res.cloudinary.com/deukqrxtt/image/upload/v1790051162/aalayam1_2_tkqv2u.jpg', material: 'Evening Brass Set'})">
+                  <span>ADD TO BAG</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Custom Commissions CTA -->
+    <section style="padding: 100px 48px; text-align: center; background-color: var(--bg-primary);">
+      <span class="kicker">COMMISSIONS & CUSTOM GIFTS</span>
+      <h2 class="serif-heading" style="font-size: clamp(32px, 4vw, 48px); color: var(--text-primary); margin-bottom: 16px;">Planning a Milestone Celebration?</h2>
+      <p style="font-size: 15px; color: var(--text-secondary); max-width: 600px; margin: 0 auto 32px auto; line-height: 1.7;">
+        We craft custom brassware sets with personalized engravings, custom wooden heirloom boxes, and tailored quantities for weddings and corporate gratitude.
+      </p>
+      <a href="index.html#enquiry" class="btn-solid-dark">
+        <span>SUBMIT A CUSTOM BRIEF</span>
+        <svg class="svg-icon"><use href="#icon-arrow"></use></svg>
+      </a>
+    </section>
+  </main>
+
+  
+    <!-- CORPORATE & CUSTOM ENQUIRY (PLACED IN THE LAST) -->
+    <!-- 6. CORPORATE & CUSTOM ENQUIRY -->
+    <section class="section-enquiry" id="enquiry">
+      <div class="enquiry-layout">
+        <div class="enquiry-intro">
+          <span class="kicker">CORPORATE & CUSTOM</span>
+          <h2>Let’s make something meaningful.</h2>
+          <p>Tell us what you are planning, and our team will come back with thoughtful recommendations, quantities, budgets and timelines.</p>
+          <p>We welcome requests for celebrations, hospitality, corporate gifting and one-of-a-kind commissions.</p>
+        </div>
+
+        <form class="enquiry-form" onsubmit="event.preventDefault(); showToast('Enquiry received. We will connect soon.'); this.reset();">
+          <div class="form-group">
+            <label for="name">NAME</label>
+            <input type="text" id="name" name="name" required placeholder="Your full name">
+          </div>
+
+          <div class="form-group">
+            <label for="email">EMAIL</label>
+            <input type="email" id="email" name="email" required placeholder="name@company.com">
+          </div>
+
+          <div class="form-group">
+            <label for="phone">PHONE</label>
+            <input type="tel" id="phone" name="phone" placeholder="+91 00000 00000">
+          </div>
+
+          <div class="form-group">
+            <label for="company">COMPANY</label>
+            <input type="text" id="company" name="company" placeholder="Organization name">
+          </div>
+
+          <div class="form-group">
+            <label for="quantity">QUANTITY</label>
+            <input type="text" id="quantity" name="quantity" placeholder="Estimated pieces">
+          </div>
+
+          <div class="form-group">
+            <label for="budget">BUDGET</label>
+            <input type="text" id="budget" name="budget" placeholder="Estimated budget">
+          </div>
+
+          <div class="form-group full-width">
+            <label for="timeline">TIMELINE</label>
+            <select id="timeline" name="timeline">
+              <option value="2-4 weeks">2–4 weeks</option>
+              <option value="1-2 months">1–2 months</option>
+              <option value="3+ months">3+ months</option>
+            </select>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="message">TELL US MORE</label>
+            <textarea id="message" name="message" rows="4" placeholder="Tell us about your occasion, requirements or ideas..."></textarea>
+          </div>
+
+          <div class="form-submit-row">
+            <button type="submit" class="btn-solid-dark">
+              <span>SEND ENQUIRY</span>
+              <svg class="svg-icon"><use href="#icon-arrow"></use></svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  <!-- Global Footer -->
+  <footer class="global-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h2>AALAYAM</h2>
+        <p class="tagline-italic">Aalayam — Temple of Art</p>
+        <p class="tagline-caps">OBJECTS OF HERITAGE.</p>
+      </div>
+
+      <div class="footer-nav-grid">
+        <div class="footer-col">
+          <h4>DISCOVER</h4>
+          <ul>
+            <li><a href="collection.html">Collection</a></li>
+            <li><a href="craft.html">Craft</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>CATEGORIES</h4>
+          <ul>
+            <li><a href="categories.html?filter=diyas">Diyas</a></li>
+            <li><a href="categories.html?filter=statues">Statues</a></li>
+            <li><a href="collection-detail.html?set=brass">Brass</a></li>
+            <li><a href="collection-detail.html?set=pooja">Pooja</a></li>
+            <li><a href="collection-detail.html?set=home">Home</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>HELP</h4>
+          <ul>
+            <li><a href="index.html#enquiry">Contact</a></li>
+            <li><a href="craft.html#care">Shipping</a></li>
+            <li><a href="craft.html#care">Returns</a></li>
+            <li><a href="craft.html#care">Care</a></li>
+            <li><a href="about.html">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>FOLLOW</h4>
+          <ul>
+            <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.pinterest.com/" target="_blank" rel="noopener">Pinterest</a></li>
+            <li><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© AALAYAM</div>
+      <div class="legal-links">
+        <a href="about.html">PRIVACY</a>
+        <a href="about.html">TERMS</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

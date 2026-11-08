@@ -1,0 +1,1692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AALAYAM — Temple of Art</title>
+  <meta name="description" content="AALAYAM creates objects of heritage for contemporary homes, thoughtful gifting and meaningful rituals.">
+  
+  <link rel="icon" href="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Brass_Lotus_Engraving_in_Warm_Light_jmnmju.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    /* Home specific styles */
+    .hero-section {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 650px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      padding: 0 48px 94px 48px;
+    }
+
+    .hero-video-wrap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .hero-video-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(33, 27, 23, 0.4) 0%, rgba(33, 27, 23, 0.25) 45%, rgba(20, 16, 13, 0.88) 100%);
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 820px;
+      color: #f3ebdd;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(60px, 9vw, 100px);
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      line-height: 0.95;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .hero-tagline {
+      font-family: var(--font-serif);
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-style: italic;
+      color: rgba(243, 235, 221, 0.92);
+      margin-bottom: 6px;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      font-weight: 300;
+      letter-spacing: 0.02em;
+      color: rgba(243, 235, 221, 0.8);
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* Category Section */
+    .section-category {
+      background-color: var(--bg-primary);
+      padding: 120px 48px;
+    }
+
+    .section-header {
+      max-width: 720px;
+      margin-bottom: 56px;
+    }
+
+    .section-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(34px, 4.2vw, 52px);
+      font-weight: 400;
+      color: var(--text-primary);
+      line-height: 1.15;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .category-card {
+      display: flex;
+      flex-direction: column;
+      color: inherit;
+    }
+
+    .category-card .img-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background-color: var(--border-light);
+      margin-bottom: 20px;
+    }
+
+    .category-card .img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .category-card:hover .img-container img {
+      transform: scale(1.06);
+    }
+
+    .category-card h3 {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      transition: color 0.3s ease;
+    }
+
+    .category-card:hover h3 {
+      color: var(--color-gold);
+    }
+
+    .category-card p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* Making Section */
+    .section-making {
+      background-color: var(--bg-espresso);
+      color: #f3ebdd;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 600px;
+    }
+
+    .making-img-wrap {
+      position: relative;
+      overflow: hidden;
+      min-height: 480px;
+    }
+
+    .making-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .section-making:hover .making-img-wrap img {
+      transform: scale(1.04);
+    }
+
+    .making-content-wrap {
+      padding: 96px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 600px;
+    }
+
+    .making-content-wrap h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(34px, 3.8vw, 48px);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 24px;
+      color: #f3ebdd;
+    }
+
+    .making-content-wrap p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: rgba(243, 235, 221, 0.8);
+      margin-bottom: 36px;
+    }
+
+    .making-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #f3ebdd;
+      position: relative;
+      width: fit-content;
+    }
+
+    .making-link::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: #f3ebdd;
+      transition: width 0.3s ease;
+    }
+
+    .making-link:hover::after {
+      width: 120%;
+    }
+
+    /* Gifting */
+    .section-gifting {
+      background-color: var(--bg-primary);
+      padding: 120px 48px;
+    }
+
+    .gifting-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+      margin-top: 56px;
+      border-top: 1px solid var(--border-light);
+      padding-top: 48px;
+    }
+
+    .gifting-card {
+      display: flex;
+      flex-direction: column;
+      padding: 24px 0;
+      border-right: 1px solid var(--border-light);
+      padding-right: 36px;
+    }
+
+    .gifting-card:last-child {
+      border-right: none;
+      padding-right: 0;
+    }
+
+    .gifting-num {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      color: var(--color-gold);
+      margin-bottom: 16px;
+    }
+
+    .gifting-card h3 {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+
+    .gifting-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Enquiry */
+    .section-enquiry {
+      background-color: var(--bg-primary);
+      padding: 120px 48px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .enquiry-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+    }
+
+    .enquiry-intro h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 4.5vw, 54px);
+      font-weight: 400;
+      color: var(--text-primary);
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+
+    .enquiry-intro p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .enquiry-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group.full-width {
+      grid-column: span 2;
+    }
+
+    .form-group label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .form-group input, 
+    .form-group select, 
+    .form-group textarea {
+      width: 100%;
+      background: var(--input-bg);
+      border: 1px solid var(--border-medium);
+      padding: 14px 16px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--text-primary);
+      outline: none;
+      transition: border-color 0.3s ease;
+      border-radius: 0;
+    }
+
+    .form-group input:focus, 
+    .form-group select:focus, 
+    .form-group textarea:focus {
+      border-color: var(--color-gold);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-submit-row {
+      grid-column: span 2;
+      margin-top: 12px;
+    }
+
+    /* Philosophy */
+    .section-philosophy {
+      background-color: var(--bg-primary);
+      padding: 140px 48px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .philosophy-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .philosophy-text-side {
+      max-width: 560px;
+    }
+
+    .philosophy-text-side h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(38px, 4.6vw, 60px);
+      font-weight: 400;
+      color: var(--text-primary);
+      line-height: 1.1;
+      margin-bottom: 28px;
+      text-transform: uppercase;
+    }
+
+    .philosophy-text-side p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+
+    .philosophy-visual-side {
+      position: relative;
+    }
+
+    .study-main-img {
+      position: relative;
+      width: 82%;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background-color: var(--border-light);
+    }
+
+    .study-main-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .study-overlay-detail {
+      position: absolute;
+      right: 0;
+      bottom: -40px;
+      width: 45%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      border: 4px solid var(--bg-primary);
+    }
+
+    .study-overlay-detail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .study-caption {
+      margin-top: 24px;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+    }
+
+    .study-caption span {
+      display: block;
+      color: var(--text-primary);
+      font-family: var(--font-serif);
+      font-size: 18px;
+      letter-spacing: 0.05em;
+      margin-top: 4px;
+    }
+
+    /* Objects with a Story */
+    .section-objects {
+      background-color: var(--bg-primary);
+      padding: 120px 48px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .objects-intro {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 72px auto;
+    }
+
+    .objects-intro h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 4.5vw, 54px);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      color: var(--text-primary);
+    }
+
+    .objects-intro p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .objects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+      margin-bottom: 64px;
+    }
+
+    .object-card {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border-light);
+      background-color: var(--bg-card);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .object-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--card-shadow);
+      border-color: var(--border-medium);
+      background-color: var(--bg-card-hover);
+    }
+
+    .object-img-wrap {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background-color: var(--border-light);
+    }
+
+    .object-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .object-card:hover .object-img-wrap img {
+      transform: scale(1.05);
+    }
+
+    .object-info {
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .object-code {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 8px;
+    }
+
+    .object-info h3 {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .object-info .desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+
+    .object-spec-table {
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      padding: 16px 0;
+      margin-bottom: 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+
+    .spec-item .spec-label {
+      font-size: 9px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .spec-item .spec-val {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .bring-home-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+
+    .bring-home-btn:hover {
+      color: var(--color-gold);
+    }
+
+    .center-cta {
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Craftsmanship & Statements */
+    .section-craft-transition {
+      width: 100%;
+      height: 480px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .section-craft-transition img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .craft-intro-box {
+      background-color: var(--bg-primary);
+      padding: 100px 48px 60px 48px;
+      text-align: center;
+    }
+
+    .craft-intro-box h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(34px, 4.5vw, 56px);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      color: var(--text-primary);
+    }
+
+    .craft-intro-box p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .craft-statements-block {
+      background-color: var(--bg-primary);
+      padding: 0 48px 100px 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .statement-big {
+      font-family: var(--font-serif);
+      font-size: clamp(48px, 7.5vw, 100px);
+      line-height: 1;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      text-align: center;
+    }
+
+    .statement-big.italic {
+      font-style: italic;
+      color: var(--color-gold);
+    }
+
+    /* India Craft Map */
+    .section-india-map {
+      background-color: var(--bg-primary);
+      padding: 100px 48px 120px 48px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .map-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 48px auto;
+    }
+
+    .map-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 4.2vw, 52px);
+      font-weight: 400;
+      text-transform: uppercase;
+      line-height: 1.15;
+      color: var(--text-primary);
+    }
+
+    .map-graphic-wrap {
+      max-width: 960px;
+      margin: 0 auto 64px auto;
+      border: 1px solid var(--border-light);
+      background-color: var(--border-light);
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+    }
+
+    .map-graphic-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .heritage-quote-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+
+    .heritage-quote-item {
+      font-family: var(--font-serif);
+      font-size: clamp(24px, 3.5vw, 42px);
+      text-transform: uppercase;
+      color: var(--text-primary);
+    }
+
+    .heritage-quote-item.accent {
+      color: var(--color-gold);
+      font-style: italic;
+    }
+
+    /* The Home */
+    .section-home {
+      background-color: var(--bg-primary);
+      padding: 120px 48px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .home-intro-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: baseline;
+      margin-bottom: 64px;
+    }
+
+    .home-intro-split h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(40px, 5.2vw, 68px);
+      font-weight: 400;
+      line-height: 1.05;
+      text-transform: uppercase;
+      color: var(--text-primary);
+    }
+
+    .home-intro-aside h3 {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
+    .home-intro-aside p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+
+    .home-interior-visual {
+      position: relative;
+      margin-bottom: 64px;
+    }
+
+    .home-hero-img {
+      width: 100%;
+      max-height: 650px;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      overflow: hidden;
+      background-color: var(--border-light);
+    }
+
+    .home-hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .home-object-notes {
+      margin-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-top: 1px solid var(--border-light);
+      padding-top: 20px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .home-object-notes .note-left {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+    }
+
+    .home-object-notes .note-mid {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .home-object-notes .note-right {
+      font-size: 12px;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .home-statement-block {
+      text-align: center;
+      padding: 60px 0;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .home-statement-block h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 4vw, 50px);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+
+    .home-statement-block .foot-tag {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--color-gold);
+      text-transform: uppercase;
+    }
+
+    /* Final Brand Moment */
+    .section-final-brand {
+      background: linear-gradient(180deg, var(--bg-espresso) 0%, var(--bg-dark) 52%, var(--bg-dark) 100%);
+      color: #f3ebdd;
+      padding: 120px 48px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .final-brass-img {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 36px 0;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+      border: 2px solid rgba(243, 235, 221, 0.2);
+    }
+
+    .final-brass-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .final-logo {
+      font-family: var(--font-serif);
+      font-size: clamp(52px, 8vw, 92px);
+      letter-spacing: 0.14em;
+      font-weight: 400;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 12px;
+      color: #f3ebdd;
+    }
+
+    .final-tagline {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-style: italic;
+      color: rgba(243, 235, 221, 0.9);
+      margin-bottom: 8px;
+    }
+
+    .final-support {
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      color: rgba(243, 235, 221, 0.7);
+      margin-bottom: 36px;
+    }
+
+    /* Newsletter */
+    .section-newsletter {
+      background-color: var(--bg-primary);
+      padding: 100px 48px;
+      text-align: center;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .newsletter-box {
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    .newsletter-box h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 3.8vw, 44px);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      color: var(--text-primary);
+    }
+
+    .newsletter-box p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      max-width: 460px;
+      margin: 0 auto;
+      border: 1px solid var(--border-medium);
+      background-color: var(--input-bg);
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      border: none;
+      padding: 14px 18px;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      color: var(--text-primary);
+      background: transparent;
+      outline: none;
+    }
+
+    .newsletter-form button {
+      background-color: var(--text-primary);
+      color: var(--bg-primary);
+      padding: 14px 24px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+    }
+
+    .newsletter-form button:hover {
+      background-color: var(--color-gold);
+      color: #fff;
+    }
+
+    /* Customer Notes */
+    .section-notes {
+      background-color: var(--bg-primary);
+      padding: 48px;
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .notes-copy {
+      max-width: 600px;
+    }
+
+    .notes-copy .label {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      font-weight: 600;
+      color: var(--color-gold);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .notes-copy p {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .notes-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .notes-links li a {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      position: relative;
+    }
+
+    .notes-links li a:hover {
+      color: var(--color-gold);
+    }
+
+    @media (max-width: 1024px) {
+      .hero-section, .section-category, .section-gifting, .section-enquiry, 
+      .section-philosophy, .section-objects, .section-home, 
+      .section-final-brand, .section-newsletter, .section-notes, 
+      .craft-intro-box, .craft-statements-block, .section-india-map {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .section-making {
+        grid-template-columns: 1fr;
+      }
+
+      .making-content-wrap {
+        padding: 64px 24px;
+      }
+
+      .gifting-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .gifting-card {
+        border-right: none;
+        border-bottom: 1px solid var(--border-light);
+        padding-right: 0;
+      }
+
+      .enquiry-layout, .philosophy-layout, .home-intro-split {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .objects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .study-main-img {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .category-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .enquiry-form {
+        grid-template-columns: 1fr;
+      }
+
+      .form-group.full-width {
+        grid-column: span 1;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .hero-actions .btn-solid-cream, 
+      .hero-actions .btn-outline-cream {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SVG Sprite Definitions -->
+  <svg style="display: none;">
+    <symbol id="icon-arrow" viewBox="0 0 24 24">
+      <path d="M 5 12 L 19 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <path d="M 12 5 L 19 12 L 12 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </symbol>
+    <symbol id="icon-search" viewBox="0 0 24 24">
+      <path d="M 4.34 4.34 L 0 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(16.66 16.66)"/>
+      <path d="M 0 8 C 0 3.582 3.582 0 8 0 C 12.418 0 16 3.582 16 8 C 16 12.418 12.418 16 8 16 C 3.582 16 0 12.418 0 8 Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(3 3)"/>
+    </symbol>
+    <symbol id="icon-bag" viewBox="0 0 24 24">
+      <path d="M 8 0 C 8 2.209 6.209 4 4 4 C 1.791 4 0 2.209 0 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(8 10)"/>
+      <path d="M 0 0 L 17.794 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(3.103 6.034)"/>
+      <path d="M 0.4 3.467 C 0.14 3.813 0 4.234 0 4.667 L 0 18 C 0 19.105 0.895 20 2 20 L 16 20 C 17.105 20 18 19.105 18 18 L 18 4.667 C 18 4.234 17.86 3.813 17.6 3.467 L 15.6 0.8 C 15.222 0.296 14.63 0 14 0 L 4 0 C 3.37 0 2.778 0.296 2.4 0.8 Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(3 2)"/>
+    </symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24">
+      <path d="M 0 0 L 16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(4 6)"/>
+      <path d="M 0 0 L 16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(4 12)"/>
+      <path d="M 0 0 L 16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(4 18)"/>
+    </symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24">
+      <path d="M 5 5 L 19 19 M 19 5 L 5 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </symbol>
+  </svg>
+
+  <!-- 1. GLOBAL HEADER -->
+  <header class="header-wrapper" id="headerWrapper">
+    <div class="announcement-bar">
+      <div class="marquee-track">
+        <span>CRAFTED OBJECTS. ROOTED IN HERITAGE.</span>
+      </div>
+      <a href="collection.html" class="collection-link">
+        <span>DISCOVER THE COLLECTION</span>
+        <svg class="svg-icon"><use href="#icon-arrow"></use></svg>
+      </a>
+    </div>
+
+    <nav class="nav-bar">
+      <a href="index.html" class="brand-logo">AALAYAM</a>
+
+      <ul class="nav-links">
+        <li><a href="collection.html">Collection</a></li>
+        <li><a href="craft.html">Craft</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+
+      <ul class="utility-nav">
+        <!-- Theme Toggle -->
+        <li>
+          <button class="theme-toggle-btn" id="themeToggle" title="Toggle Theme" aria-label="Toggle Theme">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+        </li>
+        <li class="hide-mobile">
+          <a href="#search" onclick="openGlobalSearch(); return false;">
+            <svg class="svg-icon"><use href="#icon-search"></use></svg>
+            <span>SEARCH</span>
+          </a>
+        </li>
+        <li>
+          <a href="bag.html">
+            <svg class="svg-icon"><use href="#icon-bag"></use></svg>
+            <span>BAG</span>
+            <span class="bag-badge" style="display: none;">0</span>
+          </a>
+        </li>
+        <li>
+          <button class="mobile-menu-btn" id="openMobileMenu" aria-label="Open Navigation">
+            <svg class="svg-icon" style="width: 22px; height: 22px;"><use href="#icon-menu"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-header">
+      <span class="brand-logo">AALAYAM</span>
+      <button id="closeMobileMenu" aria-label="Close Navigation">
+        <svg class="svg-icon" style="width: 24px; height: 24px;"><use href="#icon-close"></use></svg>
+      </button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li><a href="index.html" class="mobile-link active">HOME</a></li>
+      <li><a href="collection.html" class="mobile-link">COLLECTION</a></li>
+      <li><a href="craft.html" class="mobile-link">CRAFT</a></li>
+      <li><a href="categories.html" class="mobile-link">CATEGORIES</a></li>
+      <li><a href="about.html" class="mobile-link">ABOUT</a></li>
+      <li><a href="bag.html" class="mobile-link">YOUR BAG</a></li>
+      <li><a href="#enquiry" class="mobile-link">CUSTOM ENQUIRY</a></li>
+    </ul>
+    <div style="font-size: 11px; letter-spacing: 0.16em; color: rgba(243, 235, 221, 0.5);">
+      © AALAYAM. ROOTED IN HERITAGE.
+    </div>
+  </div>
+
+  <main>
+    <!-- 2. CINEMATIC OPENING (HERO SECTION) -->
+    <section class="hero-section" id="hero">
+      <div class="hero-video-wrap">
+        <video autoplay loop muted playsinline poster="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Sunlit_Antique_Brass_Urn_with_Flowers_aonm8t.png">
+          <source src="https://res.cloudinary.com/deukqrxtt/video/upload/v1789891479/0920_ki5ewj.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <h1 class="hero-title">AALAYAM</h1>
+        <p class="hero-tagline">Aalayam — Temple of Art</p>
+        <p class="hero-subtitle">Tradition, shaped for the way we live today.</p>
+        
+        <div class="hero-actions">
+          <a href="collection.html" class="btn-solid-cream">
+            <span>EXPLORE THE COLLECTION</span>
+          </a>
+          <a href="about.html" class="btn-outline-cream">
+            <span>DISCOVER OUR STORY</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SHOP BY CATEGORY -->
+    <section class="section-category" id="categories">
+      <div class="section-header">
+        <span class="kicker">SHOP BY CATEGORY</span>
+        <h2>Begin with the object that calls to you.</h2>
+      </div>
+
+      <div class="category-grid">
+        <a href="categories.html?filter=diyas" class="category-card">
+          <div class="img-container">
+            <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Sunlit_Antique_Brass_Urn_with_Flowers_aonm8t.png" alt="Brass Lamps" loading="lazy">
+          </div>
+          <h3>Lamps</h3>
+          <p>Warm light for everyday rituals.</p>
+        </a>
+
+        <a href="categories.html?filter=statues" class="category-card">
+          <div class="img-container">
+            <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Brass_Lotus_Engraving_in_Warm_Light_jmnmju.png" alt="Brass Idols" loading="lazy">
+          </div>
+          <h3>Idols</h3>
+          <p>Quiet forms with a sense of presence.</p>
+        </a>
+
+        <a href="categories.html?filter=combos" class="category-card">
+          <div class="img-container">
+            <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051162/aalayam1_2_tkqv2u.jpg" alt="Brass Combos" loading="lazy">
+          </div>
+          <h3>Combos</h3>
+          <p>Considered pairings, ready to gift.</p>
+        </a>
+
+        <a href="categories.html?filter=all" class="category-card">
+          <div class="img-container">
+            <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Sunlit_Antique_Brass_Urn_with_Flowers_aonm8t.png" alt="Today's Sale Objects" loading="lazy">
+          </div>
+          <h3>Today’s Sale</h3>
+          <p>A small edit of pieces worth noticing.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- 4. THE MAKING STORY -->
+    <section class="section-making" id="craft">
+      <div class="making-img-wrap">
+        <img src="https://framerusercontent.com/images/XN1TT1V5VGs1bx8Knwt8WIBxYA.png" alt="The Craft and Making of Aalayam" loading="lazy">
+      </div>
+      <div class="making-content-wrap">
+        <span class="kicker kicker-dark">THE MAKING</span>
+        <h2>Every piece begins long before it arrives at home.</h2>
+        <p>From the first sketch to the final polish, AALAYAM is shaped by patient hands, familiar tools and a deep respect for material. Explore the people and processes behind our objects.</p>
+        <a href="craft.html" class="making-link">
+          <span>EXPLORE THE CRAFT</span>
+          <svg class="svg-icon"><use href="#icon-arrow"></use></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- 5. THOUGHTFUL GIFTING -->
+    <section class="section-gifting">
+      <div class="section-header">
+        <span class="kicker">THOUGHTFUL GIFTING</span>
+        <h2>Give something with a life of its own.</h2>
+      </div>
+
+      <div class="gifting-grid">
+        <a href="#enquiry" class="gifting-card">
+          <span class="gifting-num">01</span>
+          <h3>Curated Gifting</h3>
+          <p>A considered selection for birthdays, milestones and the quiet joy of giving.</p>
+        </a>
+
+        <a href="#enquiry" class="gifting-card">
+          <span class="gifting-num">02</span>
+          <h3>Corporate Gifting</h3>
+          <p>Objects with presence for teams, clients and meaningful occasions.</p>
+        </a>
+
+        <a href="#enquiry" class="gifting-card">
+          <span class="gifting-num">03</span>
+          <h3>Custom Orders</h3>
+          <p>A personal brief, shaped around your quantity, timeline and sense of place.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- 7. AALAYAM PHILOSOPHY / OBJECT STUDY -->
+    <section class="section-philosophy" id="about">
+      <div class="philosophy-layout">
+        <div class="philosophy-text-side">
+          <span class="kicker">AALAYAM / PHILOSOPHY</span>
+          <h2>BEFORE IT WAS AN OBJECT, IT WAS A TRADITION.</h2>
+          <p>Objects have always been part of the Indian home — carrying rituals, memories, craftsmanship and meaning from one generation to another.</p>
+        </div>
+
+        <div class="philosophy-visual-side">
+          <div class="study-main-img">
+            <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Sunlit_Antique_Brass_Urn_with_Flowers_aonm8t.png" alt="The Brass Vessel Object Study" loading="lazy">
+          </div>
+          <div class="study-overlay-detail">
+            <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Brass_Lotus_Engraving_in_Warm_Light_jmnmju.png" alt="Lotus Engraving Detail" loading="lazy">
+          </div>
+          <div class="study-caption">
+            AALAYAM / OBJECT STUDY
+            <span>THE BRASS VESSEL</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. OBJECTS WITH A STORY -->
+    <section class="section-objects" id="collection">
+      <div class="objects-intro">
+        <span class="kicker">AALAYAM / OBJECTS</span>
+        <h2>OBJECTS WITH A STORY</h2>
+        <p>Objects shaped by material, hand and tradition — made to live beyond the moment they are discovered.</p>
+      </div>
+
+      <div class="objects-grid">
+        <!-- Product 1 -->
+        <div class="object-card">
+          <div class="object-img-wrap">
+            <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1794111889/Kerala_Style_Vilakku_Pro_06_6_lsrozw.jpg" alt="Kerala Style Vilakku" loading="lazy">
+          </div>
+          <div class="object-info">
+            <span class="object-code">AALAYAM / 004</span>
+            <h3><a href="product.html?id=004" style="color: inherit; text-decoration: none;">KERALA STYLE VILAKKU</a></h3>
+            <p class="desc">The revered 16-inch Nilavilakku of Kerala in solid bell-metal brass.</p>
+            
+            <div class="object-spec-table">
+              <div class="spec-item">
+                <span class="spec-label">MATERIAL</span>
+                <span class="spec-val">Brass</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">CRAFT</span>
+                <span class="spec-val">Hand-finished</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">PRICE</span>
+                <span class="spec-val">₹3,450</span>
+              </div>
+            </div>
+
+            <button class="bring-home-btn" onclick="event.stopPropagation(); addToCart({id: '004', name: 'KERALA STYLE VILAKKU', code: 'AALAYAM / 004', price: 3450, image: 'https://res.cloudinary.com/deukqrxtt/image/upload/v1794111889/Kerala_Style_Vilakku_Pro_06_6_lsrozw.jpg', material: 'Solid Bell-Metal Brass'})">
+              <span>BRING IT HOME</span>
+              <svg class="svg-icon"><use href="#icon-arrow"></use></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="object-card">
+          <div class="object-img-wrap">
+            <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1794112137/Ashtalakshmi_Flower_Basket_Pro_03_5_vmadyc.jpg" alt="Ashtalakshmi Flower Basket" loading="lazy">
+          </div>
+          <div class="object-info">
+            <span class="object-code">AALAYAM / 005</span>
+            <h3><a href="product.html?id=005" style="color: inherit; text-decoration: none;">ASHTALAKSHMI FLOWER BASKET</a></h3>
+            <p class="desc">A ceremonial brass basket embossed with the eight divine forms of Goddess Lakshmi.</p>
+            
+            <div class="object-spec-table">
+              <div class="spec-item">
+                <span class="spec-label">MATERIAL</span>
+                <span class="spec-val">Brass</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">CRAFT</span>
+                <span class="spec-val">Hand-finished</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">PRICE</span>
+                <span class="spec-val">₹2,650</span>
+              </div>
+            </div>
+
+            <button class="bring-home-btn" onclick="event.stopPropagation(); addToCart({id: '005', name: 'ASHTALAKSHMI FLOWER BASKET', code: 'AALAYAM / 005', price: 2650, image: 'https://res.cloudinary.com/deukqrxtt/image/upload/v1794112137/Ashtalakshmi_Flower_Basket_Pro_03_5_vmadyc.jpg', material: 'Solid Brass · Ashta Lakshmi Reliefs'})">
+              <span>BRING IT HOME</span>
+              <svg class="svg-icon"><use href="#icon-arrow"></use></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="object-card">
+          <div class="object-img-wrap">
+            <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1794112236/Ashtalakshmi_Kalash_Pro_02_2_rvsrhb.jpg" alt="Ashtalakshmi Kalash" loading="lazy">
+          </div>
+          <div class="object-info">
+            <span class="object-code">AALAYAM / 006</span>
+            <h3><a href="product.html?id=006" style="color: inherit; text-decoration: none;">ASHTALAKSHMI KALASH</a></h3>
+            <p class="desc">A sacred sanctum Kalash pot embellished with high-relief Ashta Lakshmi carvings.</p>
+            
+            <div class="object-spec-table">
+              <div class="spec-item">
+                <span class="spec-label">MATERIAL</span>
+                <span class="spec-val">Brass</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">CRAFT</span>
+                <span class="spec-val">Hand-finished</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">PRICE</span>
+                <span class="spec-val">₹4,850</span>
+              </div>
+            </div>
+
+            <button class="bring-home-btn" onclick="event.stopPropagation(); addToCart({id: '006', name: 'ASHTALAKSHMI KALASH', code: 'AALAYAM / 006', price: 4850, image: 'https://res.cloudinary.com/deukqrxtt/image/upload/v1794112236/Ashtalakshmi_Kalash_Pro_02_2_rvsrhb.jpg', material: 'Heavy Solid Brass · 1.8 kg'})">
+              <span>BRING IT HOME</span>
+              <svg class="svg-icon"><use href="#icon-arrow"></use></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="center-cta">
+        <a href="categories.html" class="btn-pill">
+          <span>DISCOVER MORE OBJECTS</span>
+          <svg class="svg-icon"><use href="#icon-arrow"></use></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- 9. CRAFTSMANSHIP -->
+    <section class="craftsmanship-section">
+      <div class="section-craft-transition">
+        <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Brass_Lotus_Engraving_in_Warm_Light_jmnmju.png" alt="Craft Detail" loading="lazy">
+      </div>
+
+      <div class="craft-intro-box">
+        <span class="kicker">AALAYAM / CRAFT</span>
+        <h2>MADE BY HAND. KEPT BY HEART.</h2>
+        <p>The character of a handmade object lives in its surface — the marks, texture, weight and small variations that make every piece feel personal.</p>
+      </div>
+
+      <div class="craft-statements-block">
+        <div class="statement-big">MADE BY HAND.</div>
+        <div class="statement-big italic">KEPT BY HEART.</div>
+      </div>
+    </section>
+
+    <!-- 10. INDIA CRAFT MAP -->
+    <section class="section-india-map">
+      <div class="map-header">
+        <span class="kicker">AALAYAM / INDIA</span>
+        <h2>FROM MATERIAL TO MEMORY</h2>
+      </div>
+
+      <div class="map-graphic-wrap">
+        <img src="https://framerusercontent.com/images/XN1TT1V5VGs1bx8Knwt8WIBxYA.png" alt="Aalayam Craft Origins India" loading="lazy">
+      </div>
+
+      <div class="heritage-quote-row">
+        <div class="heritage-quote-item">HERITAGE IS NOT</div>
+        <div class="heritage-quote-item accent">PRESERVED.</div>
+        <div class="heritage-quote-item">IT IS LIVED.</div>
+      </div>
+    </section>
+
+    <!-- 11. THE HOME -->
+    <section class="section-home" id="home">
+      <div class="home-intro-split">
+        <div>
+          <span class="kicker">AALAYAM / THE HOME</span>
+          <h2>TRADITION<br>BELONGS<br>IN THE HOME.</h2>
+        </div>
+        <div class="home-intro-aside">
+          <h3>Not preserved behind glass. Lived with.</h3>
+          <p>A home is where material becomes memory — where a vessel, a lamp or a small brass object earns its place through daily life.</p>
+        </div>
+      </div>
+
+      <div class="home-interior-visual">
+        <div class="home-hero-img">
+          <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051162/aalayam1_2_tkqv2u.jpg" alt="Aalayam in the Contemporary Indian Home" loading="lazy">
+        </div>
+
+        <div class="home-object-notes">
+          <span class="note-left">A QUIET MATERIAL LANGUAGE</span>
+          <div class="note-mid">
+            <strong>BRASS / OBJECT 01</strong> — Placed without ceremony. Kept because it belongs.
+          </div>
+          <span class="note-right">MATERIAL / BRASS · A warm presence</span>
+        </div>
+      </div>
+
+      <div class="home-statement-block">
+        <h2>Heritage does not have to remain in the past.<br>It can become part of the way we live.</h2>
+        <span class="foot-tag">CRAFT / OBJECT / HOME</span>
+      </div>
+    </section>
+
+    <!-- 12. FINAL BRAND MOMENT -->
+    <section class="section-final-brand">
+      <span class="kicker kicker-dark">AALAYAM / OBJECTS OF HERITAGE</span>
+
+      <div class="final-brass-img">
+        <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051162/aalayam1_2_tkqv2u.jpg" alt="Aalayam Heritage Object" loading="lazy">
+      </div>
+
+      <h2 class="final-logo">AALAYAM</h2>
+      <p class="final-tagline">Aalayam — Temple of Art</p>
+      <p class="final-support">Tradition, shaped for the way we live today.</p>
+
+      <a href="collection.html" class="btn-solid-cream">
+        <span>ENTER THE COLLECTION</span>
+        <svg class="svg-icon"><use href="#icon-arrow"></use></svg>
+      </a>
+    </section>
+
+    
+
+    <!-- CORPORATE & CUSTOM ENQUIRY (PLACED IN THE LAST) -->
+    <!-- 6. CORPORATE & CUSTOM ENQUIRY -->
+    <section class="section-enquiry" id="enquiry">
+      <div class="enquiry-layout">
+        <div class="enquiry-intro">
+          <span class="kicker">CORPORATE & CUSTOM</span>
+          <h2>Let’s make something meaningful.</h2>
+          <p>Tell us what you are planning, and our team will come back with thoughtful recommendations, quantities, budgets and timelines.</p>
+          <p>We welcome requests for celebrations, hospitality, corporate gifting and one-of-a-kind commissions.</p>
+        </div>
+
+        <form class="enquiry-form" onsubmit="event.preventDefault(); showToast('Enquiry received. We will connect soon.'); this.reset();">
+          <div class="form-group">
+            <label for="name">NAME</label>
+            <input type="text" id="name" name="name" required placeholder="Your full name">
+          </div>
+
+          <div class="form-group">
+            <label for="email">EMAIL</label>
+            <input type="email" id="email" name="email" required placeholder="name@company.com">
+          </div>
+
+          <div class="form-group">
+            <label for="phone">PHONE</label>
+            <input type="tel" id="phone" name="phone" placeholder="+91 00000 00000">
+          </div>
+
+          <div class="form-group">
+            <label for="company">COMPANY</label>
+            <input type="text" id="company" name="company" placeholder="Organization name">
+          </div>
+
+          <div class="form-group">
+            <label for="quantity">QUANTITY</label>
+            <input type="text" id="quantity" name="quantity" placeholder="Estimated pieces">
+          </div>
+
+          <div class="form-group">
+            <label for="budget">BUDGET</label>
+            <input type="text" id="budget" name="budget" placeholder="Estimated budget">
+          </div>
+
+          <div class="form-group full-width">
+            <label for="timeline">TIMELINE</label>
+            <select id="timeline" name="timeline">
+              <option value="2-4 weeks">2–4 weeks</option>
+              <option value="1-2 months">1–2 months</option>
+              <option value="3+ months">3+ months</option>
+            </select>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="message">TELL US MORE</label>
+            <textarea id="message" name="message" rows="4" placeholder="Tell us about your occasion, requirements or ideas..."></textarea>
+          </div>
+
+          <div class="form-submit-row">
+            <button type="submit" class="btn-solid-dark">
+              <span>SEND ENQUIRY</span>
+              <svg class="svg-icon"><use href="#icon-arrow"></use></svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- 13. NEWSLETTER -->
+    <section class="section-newsletter">
+      <div class="newsletter-box">
+        <span class="kicker">AALAYAM / LETTER</span>
+        <h2>STAY CLOSE TO AALAYAM.</h2>
+        <p>Stories, objects and new discoveries from Aalayam.</p>
+
+        <form class="newsletter-form" onsubmit="event.preventDefault(); showToast('Subscribed to Aalayam Letters.'); this.reset();">
+          <input type="email" placeholder="YOUR EMAIL" required>
+          <button type="submit">
+            <span>JOIN</span>
+            <svg class="svg-icon"><use href="#icon-arrow"></use></svg>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- 14. CUSTOMER NOTES -->
+    <section class="section-notes">
+      <div class="notes-copy">
+        <div class="label">AALAYAM NOTES</div>
+        <p>Customer reviews are coming soon. Until then, explore our care, shipping and returns guidance before bringing an object home.</p>
+      </div>
+
+      <ul class="notes-links">
+        <li><a href="craft.html#care">SHIPPING</a></li>
+        <li><a href="craft.html#care">RETURNS</a></li>
+        <li><a href="craft.html#care">BRASS CARE</a></li>
+        <li><a href="about.html">FAQ</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- 15. GLOBAL FOOTER -->
+  <footer class="global-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h2>AALAYAM</h2>
+        <p class="tagline-italic">Aalayam — Temple of Art</p>
+        <p class="tagline-caps">OBJECTS OF HERITAGE.</p>
+      </div>
+
+      <div class="footer-nav-grid">
+        <div class="footer-col">
+          <h4>DISCOVER</h4>
+          <ul>
+            <li><a href="collection.html">Collection</a></li>
+            <li><a href="craft.html">Craft</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>CATEGORIES</h4>
+          <ul>
+            <li><a href="categories.html?filter=diyas">Diyas</a></li>
+            <li><a href="categories.html?filter=statues">Statues</a></li>
+            <li><a href="categories.html?filter=brass">Brass</a></li>
+            <li><a href="categories.html?filter=pooja">Pooja</a></li>
+            <li><a href="categories.html?filter=home">Home</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>HELP</h4>
+          <ul>
+            <li><a href="#enquiry">Contact</a></li>
+            <li><a href="craft.html#care">Shipping</a></li>
+            <li><a href="craft.html#care">Returns</a></li>
+            <li><a href="craft.html#care">Care</a></li>
+            <li><a href="about.html">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>FOLLOW</h4>
+          <ul>
+            <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.pinterest.com/" target="_blank" rel="noopener">Pinterest</a></li>
+            <li><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© AALAYAM</div>
+      <div class="legal-links">
+        <a href="about.html">PRIVACY</a>
+        <a href="about.html">TERMS</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AALAYAM — Your Bag</title>
+  <meta name="description" content="Your shopping bag at AALAYAM. Review your selected objects of heritage.">
+  <link rel="icon" href="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Brass_Lotus_Engraving_in_Warm_Light_jmnmju.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .bag-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 60px 48px 120px 48px;
+    }
+    .bag-layout {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .bag-items-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .bag-item-card {
+      display: grid;
+      grid-template-columns: 100px 1fr auto;
+      gap: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      padding: 24px;
+      align-items: center;
+      transition: var(--transition);
+    }
+    .bag-item-card:hover {
+      border-color: var(--border-medium);
+      box-shadow: var(--card-shadow);
+    }
+    .bag-item-thumb {
+      width: 100px;
+      aspect-ratio: 1/1;
+      overflow: hidden;
+      background: var(--border-light);
+    }
+    .bag-item-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .bag-item-details h3 {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+    .bag-item-details .code {
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      color: var(--color-gold);
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .bag-item-details .unit-price {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+    .qty-controls {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid var(--border-medium);
+      padding: 6px 14px;
+      margin-top: 12px;
+      background: var(--input-bg);
+    }
+    .qty-btn {
+      font-size: 14px;
+      color: var(--text-primary);
+      cursor: pointer;
+    }
+    .qty-btn:hover {
+      color: var(--color-gold);
+    }
+    .qty-val {
+      font-size: 13px;
+      font-weight: 600;
+      min-width: 16px;
+      text-align: center;
+    }
+    .bag-item-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 16px;
+    }
+    .bag-item-total {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+    .remove-btn {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: none;
+      border: none;
+    }
+    .remove-btn:hover {
+      color: #b94a48;
+    }
+    .bag-summary-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      padding: 36px 32px;
+      position: sticky;
+      top: 120px;
+    }
+    .bag-summary-card h3 {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--text-primary);
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 14px;
+    }
+    .summary-row.total {
+      border-top: 1px solid var(--border-light);
+      padding-top: 18px;
+      margin-top: 20px;
+      font-family: var(--font-serif);
+      font-size: 24px;
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+    .free-shipping-tag {
+      background: rgba(169, 130, 74, 0.15);
+      border: 1px solid var(--color-gold);
+      color: var(--color-gold);
+      padding: 10px 14px;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .checkout-btn {
+      width: 100%;
+      background: var(--text-primary);
+      color: var(--bg-primary);
+      padding: 16px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border: 1px solid var(--text-primary);
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+      margin-top: 24px;
+    }
+    .checkout-btn:hover {
+      background: var(--color-gold);
+      border-color: var(--color-gold);
+      color: #fff;
+    }
+    .continue-link {
+      display: block;
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-top: 16px;
+    }
+    .continue-link:hover {
+      color: var(--color-gold);
+    }
+    .empty-bag-wrap {
+      display: none;
+      text-align: center;
+      padding: 80px 24px;
+    }
+    .empty-bag-wrap h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 4vw, 48px);
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+    .empty-bag-wrap p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+    }
+    @media (max-width: 900px) {
+      .bag-layout {
+        grid-template-columns: 1fr;
+      }
+      .bag-container {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <svg style="display: none;">
+    <symbol id="icon-arrow" viewBox="0 0 24 24">
+      <path d="M 5 12 L 19 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <path d="M 12 5 L 19 12 L 12 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </symbol>
+    <symbol id="icon-search" viewBox="0 0 24 24">
+      <path d="M 4.34 4.34 L 0 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(16.66 16.66)"/>
+      <path d="M 0 8 C 0 3.582 3.582 0 8 0 C 12.418 0 16 3.582 16 8 C 16 12.418 12.418 16 8 16 C 3.582 16 0 12.418 0 8 Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(3 3)"/>
+    </symbol>
+    <symbol id="icon-bag" viewBox="0 0 24 24">
+      <path d="M 8 0 C 8 2.209 6.209 4 4 4 C 1.791 4 0 2.209 0 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(8 10)"/>
+      <path d="M 0 0 L 17.794 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(3.103 6.034)"/>
+      <path d="M 0.4 3.467 C 0.14 3.813 0 4.234 0 4.667 L 0 18 C 0 19.105 0.895 20 2 20 L 16 20 C 17.105 20 18 19.105 18 18 L 18 4.667 C 18 4.234 17.86 3.813 17.6 3.467 L 15.6 0.8 C 15.222 0.296 14.63 0 14 0 L 4 0 C 3.37 0 2.778 0.296 2.4 0.8 Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(3 2)"/>
+    </symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24">
+      <path d="M 0 0 L 16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(4 6)"/>
+      <path d="M 0 0 L 16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(4 12)"/>
+      <path d="M 0 0 L 16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(4 18)"/>
+    </symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24">
+      <path d="M 5 5 L 19 19 M 19 5 L 5 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </symbol>
+    <symbol id="icon-plus" viewBox="0 0 24 24">
+      <path d="M 12 5 L 12 19 M 5 12 L 19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+    </symbol>
+    <symbol id="icon-minus" viewBox="0 0 24 24">
+      <path d="M 5 12 L 19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+    </symbol>
+    <symbol id="icon-trash" viewBox="0 0 24 24">
+      <path d="M 3 6 L 21 6 M 19 6 L 19 20 C 19 21.1 18.1 22 17 22 L 7 22 C 5.9 22 5 21.1 5 20 L 5 6 M 8 6 L 8 4 C 8 2.9 8.9 2 10 2 L 14 2 C 15.1 2 16 2.9 16 4 L 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </symbol>
+  </svg>
+
+  
+  <header class="header-wrapper header-solid" id="headerWrapper">
+    <div class="announcement-bar">
+      <div class="marquee-track">
+        <span>CRAFTED OBJECTS. ROOTED IN HERITAGE.</span>
+      </div>
+      <a href="collection.html" class="collection-link">
+        <span>DISCOVER THE COLLECTION</span>
+        <svg class="svg-icon"><use href="#icon-arrow"></use></svg>
+      </a>
+    </div>
+
+    <nav class="nav-bar">
+      <a href="index.html" class="brand-logo">AALAYAM</a>
+
+      <ul class="nav-links">
+        <li><a href="collection.html" class="">Collection</a></li>
+        <li><a href="craft.html" class="">Craft</a></li>
+        <li><a href="categories.html" class="">Categories</a></li>
+        <li><a href="about.html" class="">About</a></li>
+      </ul>
+
+      <ul class="utility-nav">
+        <li>
+          <button class="theme-toggle-btn" id="themeToggle" title="Toggle Theme" aria-label="Toggle Theme">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+        </li>
+        <li class="hide-mobile">
+          <a href="#search" onclick="openGlobalSearch(); return false;">
+            <svg class="svg-icon"><use href="#icon-search"></use></svg>
+            <span>SEARCH</span>
+          </a>
+        </li>
+        <li>
+          <a href="bag.html" class="active">
+            <svg class="svg-icon"><use href="#icon-bag"></use></svg>
+            <span>BAG</span>
+            <span class="bag-badge" style="display: none;">0</span>
+          </a>
+        </li>
+        <li>
+          <button class="mobile-menu-btn" id="openMobileMenu" aria-label="Open Navigation">
+            <svg class="svg-icon" style="width: 22px; height: 22px;"><use href="#icon-menu"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-header">
+      <span class="brand-logo">AALAYAM</span>
+      <button id="closeMobileMenu" aria-label="Close Navigation">
+        <svg class="svg-icon" style="width: 24px; height: 24px;"><use href="#icon-close"></use></svg>
+      </button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li><a href="index.html" class="mobile-link">HOME</a></li>
+      <li><a href="collection.html" class="mobile-link ">COLLECTION</a></li>
+      <li><a href="craft.html" class="mobile-link ">CRAFT</a></li>
+      <li><a href="categories.html" class="mobile-link ">CATEGORIES</a></li>
+      <li><a href="about.html" class="mobile-link ">ABOUT</a></li>
+      <li><a href="bag.html" class="mobile-link active">YOUR BAG</a></li>
+    </ul>
+    <div style="font-size: 11px; letter-spacing: 0.16em; color: rgba(243, 235, 221, 0.5);">
+      © AALAYAM. ROOTED IN HERITAGE.
+    </div>
+  </div>
+
+
+  <main>
+    <section class="page-header">
+      <span class="kicker">AALAYAM / BAG</span>
+      <h1>YOUR BAG</h1>
+      <p>Your bag is ready for the objects you choose to bring home.</p>
+    </section>
+
+    <div class="bag-container">
+      <div class="empty-bag-wrap" id="emptyBag">
+        <h2>YOUR BAG IS EMPTY.</h2>
+        <p>Objects waiting to find their place in your home.</p>
+        <a href="collection.html" class="btn-solid-dark">
+          <span>EXPLORE THE COLLECTION</span>
+          <svg class="svg-icon"><use href="#icon-arrow"></use></svg>
+        </a>
+      </div>
+
+      <div class="bag-layout" id="bagLayout">
+        <!-- Cart Items List -->
+        <div class="bag-items-list" id="bagItemsList"></div>
+
+        <!-- Order Summary -->
+        <div class="bag-summary-card">
+          <div class="free-shipping-tag">Complimentary Shipping Over ₹5,000</div>
+          <h3>ORDER SUMMARY</h3>
+
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span id="summarySubtotal">₹0</span>
+          </div>
+
+          <div class="summary-row">
+            <span>Estimated Shipping</span>
+            <span id="summaryShipping">FREE</span>
+          </div>
+
+          <div class="summary-row">
+            <span>Taxes Included (GST)</span>
+            <span>18% (Included)</span>
+          </div>
+
+          <div class="summary-row total">
+            <span>Total</span>
+            <span id="summaryTotal">₹0</span>
+          </div>
+
+          <button class="checkout-btn" onclick="handleCheckout()">
+            <span>CHECKOUT</span>
+            <svg class="svg-icon"><use href="#icon-arrow"></use></svg>
+          </button>
+
+          <a href="collection.html" class="continue-link">
+            <span>CONTINUE SHOPPING →</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  
+  <footer class="global-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h2>AALAYAM</h2>
+        <p class="tagline-italic">Aalayam — Temple of Art</p>
+        <p class="tagline-caps">OBJECTS OF HERITAGE.</p>
+      </div>
+
+      <div class="footer-nav-grid">
+        <div class="footer-col">
+          <h4>DISCOVER</h4>
+          <ul>
+            <li><a href="collection.html">Collection</a></li>
+            <li><a href="craft.html">Craft</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>CATEGORIES</h4>
+          <ul>
+            <li><a href="categories.html?filter=diyas">Diyas</a></li>
+            <li><a href="categories.html?filter=statues">Statues</a></li>
+            <li><a href="categories.html?filter=brass">Brass</a></li>
+            <li><a href="categories.html?filter=pooja">Pooja</a></li>
+            <li><a href="categories.html?filter=home">Home</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>HELP</h4>
+          <ul>
+            <li><a href="index.html#enquiry">Contact</a></li>
+            <li><a href="craft.html#care">Shipping</a></li>
+            <li><a href="craft.html#care">Returns</a></li>
+            <li><a href="craft.html#care">Care</a></li>
+            <li><a href="about.html">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>FOLLOW</h4>
+          <ul>
+            <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.pinterest.com/" target="_blank" rel="noopener">Pinterest</a></li>
+            <li><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© AALAYAM</div>
+      <div class="legal-links">
+        <a href="about.html">PRIVACY</a>
+        <a href="about.html">TERMS</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    function renderBagPage() {
+      const cart = getCart();
+      const listEl = document.getElementById('bagItemsList');
+      const emptyEl = document.getElementById('emptyBag');
+      const layoutEl = document.getElementById('bagLayout');
+
+      if (!cart || cart.length === 0) {
+        layoutEl.style.display = 'none';
+        emptyEl.style.display = 'block';
+        return;
+      }
+
+      layoutEl.style.display = 'grid';
+      emptyEl.style.display = 'none';
+
+      listEl.innerHTML = cart.map(item => `
+        <div class="bag-item-card">
+          <div class="bag-item-thumb">
+            <img src="${item.image}" alt="${item.name}">
+          </div>
+          <div class="bag-item-details">
+            <span class="code">${item.code || 'AALAYAM OBJECT'}</span>
+            <h3>${item.name}</h3>
+            <span class="unit-price">₹${Number(item.price).toLocaleString('en-IN')}</span>
+            <div>
+              <div class="qty-controls">
+                <button class="qty-btn" onclick="updateQty('${item.id}', -1)" aria-label="Decrease quantity">
+                  <svg class="svg-icon" style="width: 12px; height: 12px;"><use href="#icon-minus"></use></svg>
+                </button>
+                <span class="qty-val">${item.qty}</span>
+                <button class="qty-btn" onclick="updateQty('${item.id}', 1)" aria-label="Increase quantity">
+                  <svg class="svg-icon" style="width: 12px; height: 12px;"><use href="#icon-plus"></use></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="bag-item-actions">
+            <span class="bag-item-total">₹${Number(item.price * item.qty).toLocaleString('en-IN')}</span>
+            <button class="remove-btn" onclick="removeFromCart('${item.id}')" aria-label="Remove item">
+              <svg class="svg-icon" style="width: 13px; height: 13px;"><use href="#icon-trash"></use></svg>
+              <span>REMOVE</span>
+            </button>
+          </div>
+        </div>
+      `).join('');
+
+      // Totals
+      const subtotal = cart.reduce((acc, i) => acc + (i.price * i.qty), 0);
+      const shipping = subtotal >= 5000 || subtotal === 0 ? 0 : 250;
+      const total = subtotal + shipping;
+
+      document.getElementById('summarySubtotal').textContent = '₹' + subtotal.toLocaleString('en-IN');
+      document.getElementById('summaryShipping').textContent = shipping === 0 ? 'COMPLIMENTARY' : '₹' + shipping.toLocaleString('en-IN');
+      document.getElementById('summaryTotal').textContent = '₹' + total.toLocaleString('en-IN');
+    }
+
+    function handleCheckout() {
+      alert('Thank you for choosing AALAYAM. Preparing secure checkout experience...');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderBagPage();
+    });
+  </script>
+</body>
+</html>

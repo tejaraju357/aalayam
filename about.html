@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AALAYAM — About</title>
+  <meta name="description" content="AALAYAM makes objects of heritage for contemporary living.">
+  <link rel="icon" href="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Brass_Lotus_Engraving_in_Warm_Light_jmnmju.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .about-story-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+      padding: 100px 48px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .about-story-row h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(34px, 4.5vw, 54px);
+      font-weight: 400;
+      color: var(--text-primary);
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+    .about-story-row p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+    .about-img-box {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      background: var(--border-light);
+    }
+    .about-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .principles-section {
+      background-color: var(--bg-card);
+      padding: 120px 48px;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .principles-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 64px auto;
+    }
+    .principles-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 400;
+      color: var(--text-primary);
+    }
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    .principle-card {
+      padding: 36px 30px;
+      border: 1px solid var(--border-light);
+      background-color: var(--bg-primary);
+    }
+    .principle-num {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--color-gold);
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .principle-card h3 {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--text-primary);
+      margin-bottom: 14px;
+    }
+    .principle-card p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+    .promise-section {
+      text-align: center;
+      padding: 140px 48px;
+      background-color: var(--bg-primary);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .promise-section h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(34px, 4.5vw, 56px);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+    }
+    .promise-section p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+    }
+    .practice-section {
+      padding: 100px 48px 120px 48px;
+      border-top: 1px solid var(--border-light);
+    }
+    .practice-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+      max-width: 1300px;
+      margin: 60px auto 0 auto;
+    }
+    .practice-item {
+      border-top: 2px solid var(--color-gold);
+      padding-top: 24px;
+    }
+    .practice-item .tag {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      font-weight: 600;
+      color: var(--color-gold);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .practice-item h3 {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+    .practice-item p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+    @media (max-width: 900px) {
+      .about-story-row, .principles-grid, .practice-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .about-story-row, .principles-section, .promise-section, .practice-section {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <svg style="display: none;">
+    <symbol id="icon-arrow" viewBox="0 0 24 24">
+      <path d="M 5 12 L 19 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <path d="M 12 5 L 19 12 L 12 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </symbol>
+    <symbol id="icon-search" viewBox="0 0 24 24">
+      <path d="M 4.34 4.34 L 0 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(16.66 16.66)"/>
+      <path d="M 0 8 C 0 3.582 3.582 0 8 0 C 12.418 0 16 3.582 16 8 C 16 12.418 12.418 16 8 16 C 3.582 16 0 12.418 0 8 Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(3 3)"/>
+    </symbol>
+    <symbol id="icon-bag" viewBox="0 0 24 24">
+      <path d="M 8 0 C 8 2.209 6.209 4 4 4 C 1.791 4 0 2.209 0 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(8 10)"/>
+      <path d="M 0 0 L 17.794 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(3.103 6.034)"/>
+      <path d="M 0.4 3.467 C 0.14 3.813 0 4.234 0 4.667 L 0 18 C 0 19.105 0.895 20 2 20 L 16 20 C 17.105 20 18 19.105 18 18 L 18 4.667 C 18 4.234 17.86 3.813 17.6 3.467 L 15.6 0.8 C 15.222 0.296 14.63 0 14 0 L 4 0 C 3.37 0 2.778 0.296 2.4 0.8 Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(3 2)"/>
+    </symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24">
+      <path d="M 0 0 L 16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(4 6)"/>
+      <path d="M 0 0 L 16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(4 12)"/>
+      <path d="M 0 0 L 16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(4 18)"/>
+    </symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24">
+      <path d="M 5 5 L 19 19 M 19 5 L 5 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </symbol>
+    <symbol id="icon-plus" viewBox="0 0 24 24">
+      <path d="M 12 5 L 12 19 M 5 12 L 19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+    </symbol>
+    <symbol id="icon-minus" viewBox="0 0 24 24">
+      <path d="M 5 12 L 19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+    </symbol>
+    <symbol id="icon-trash" viewBox="0 0 24 24">
+      <path d="M 3 6 L 21 6 M 19 6 L 19 20 C 19 21.1 18.1 22 17 22 L 7 22 C 5.9 22 5 21.1 5 20 L 5 6 M 8 6 L 8 4 C 8 2.9 8.9 2 10 2 L 14 2 C 15.1 2 16 2.9 16 4 L 16 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </symbol>
+  </svg>
+
+  
+  <header class="header-wrapper header-solid" id="headerWrapper">
+    <div class="announcement-bar">
+      <div class="marquee-track">
+        <span>CRAFTED OBJECTS. ROOTED IN HERITAGE.</span>
+      </div>
+      <a href="collection.html" class="collection-link">
+        <span>DISCOVER THE COLLECTION</span>
+        <svg class="svg-icon"><use href="#icon-arrow"></use></svg>
+      </a>
+    </div>
+
+    <nav class="nav-bar">
+      <a href="index.html" class="brand-logo">AALAYAM</a>
+
+      <ul class="nav-links">
+        <li><a href="collection.html" class="">Collection</a></li>
+        <li><a href="craft.html" class="">Craft</a></li>
+        <li><a href="categories.html" class="">Categories</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+      </ul>
+
+      <ul class="utility-nav">
+        <li>
+          <button class="theme-toggle-btn" id="themeToggle" title="Toggle Theme" aria-label="Toggle Theme">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+        </li>
+        <li class="hide-mobile">
+          <a href="#search" onclick="openGlobalSearch(); return false;">
+            <svg class="svg-icon"><use href="#icon-search"></use></svg>
+            <span>SEARCH</span>
+          </a>
+        </li>
+        <li>
+          <a href="bag.html" class="">
+            <svg class="svg-icon"><use href="#icon-bag"></use></svg>
+            <span>BAG</span>
+            <span class="bag-badge" style="display: none;">0</span>
+          </a>
+        </li>
+        <li>
+          <button class="mobile-menu-btn" id="openMobileMenu" aria-label="Open Navigation">
+            <svg class="svg-icon" style="width: 22px; height: 22px;"><use href="#icon-menu"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-header">
+      <span class="brand-logo">AALAYAM</span>
+      <button id="closeMobileMenu" aria-label="Close Navigation">
+        <svg class="svg-icon" style="width: 24px; height: 24px;"><use href="#icon-close"></use></svg>
+      </button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li><a href="index.html" class="mobile-link">HOME</a></li>
+      <li><a href="collection.html" class="mobile-link ">COLLECTION</a></li>
+      <li><a href="craft.html" class="mobile-link ">CRAFT</a></li>
+      <li><a href="categories.html" class="mobile-link ">CATEGORIES</a></li>
+      <li><a href="about.html" class="mobile-link active">ABOUT</a></li>
+      <li><a href="bag.html" class="mobile-link ">YOUR BAG</a></li>
+    </ul>
+    <div style="font-size: 11px; letter-spacing: 0.16em; color: rgba(243, 235, 221, 0.5);">
+      © AALAYAM. ROOTED IN HERITAGE.
+    </div>
+  </div>
+
+
+  <main>
+    <section class="page-header">
+      <span class="kicker">AALAYAM / ABOUT</span>
+      <h1>ABOUT</h1>
+      <p>AALAYAM makes objects of heritage for contemporary living.</p>
+    </section>
+
+    <!-- Origin Story -->
+    <section class="about-story-row">
+      <div>
+        <span class="kicker">AALAYAM / OUR ORIGIN</span>
+        <h2>Heritage does not have to remain in the past.</h2>
+        <p>AALAYAM began with a simple belief: the objects around us can carry more than function. They can carry place, process and the people who made them — bringing a sense of Indian material culture into the rooms of everyday life.</p>
+        <p>We work closely with multi-generational metal artisans, casting workshops and stone carvers, honoring ancestral methods while refining forms for today’s homes.</p>
+      </div>
+      <div class="about-img-box">
+        <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Sunlit_Antique_Brass_Urn_with_Flowers_aonm8t.png" alt="Aalayam Origin Brass Vessel" loading="lazy">
+      </div>
+    </section>
+
+    <!-- Principles -->
+    <section class="principles-section">
+      <div class="principles-header">
+        <span class="kicker">WHAT GUIDES US</span>
+        <h2>Useful, enduring, unmistakably human.</h2>
+      </div>
+
+      <div class="principles-grid">
+        <div class="principle-card">
+          <span class="principle-num">01 / HERITAGE</span>
+          <h3>Keep the story</h3>
+          <p>We work with traditional forms and techniques without treating them as museum pieces. Every piece is an evolution of a ritual that has endured for centuries.</p>
+        </div>
+
+        <div class="principle-card">
+          <span class="principle-num">02 / EVERYDAY</span>
+          <h3>Make it useful</h3>
+          <p>A beautiful object earns its place by becoming part of a daily ritual. We balance sculptural weight with functional grace, made to be held and used often.</p>
+        </div>
+
+        <div class="principle-card">
+          <span class="principle-num">03 / PATINA</span>
+          <h3>Let it live</h3>
+          <p>We welcome the small changes that make an object belong to the person who keeps it. The deepening warmth of brass over months and years tells a personal story.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Promise -->
+    <section class="promise-section">
+      <span class="kicker">THE AALAYAM PROMISE</span>
+      <h2>Objects of heritage, shaped for contemporary living.</h2>
+      <p>We make fewer, better things — designed to be used often, repaired when needed and kept long enough to gather a life of their own. An heirloom is not an antique; it is an object kept with love.</p>
+    </section>
+
+    <!-- Practice -->
+    <section class="practice-section">
+      <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+        <span class="kicker">OUR PRACTICE</span>
+        <h2 class="serif-heading" style="font-size: clamp(32px, 3.8vw, 48px); color: var(--text-primary);">A contemporary practice, rooted in place.</h2>
+      </div>
+
+      <div class="practice-grid">
+        <div class="practice-item">
+          <span class="tag">LOOK</span>
+          <h3>We start with observation</h3>
+          <p>The line of a vessel, the weight of a stone, the way morning light rests on a courtyard wall. We look at ritual objects as architectural geometries.</p>
+        </div>
+
+        <div class="practice-item">
+          <span class="tag">LISTEN</span>
+          <h3>We learn from process</h3>
+          <p>We work close to the people and places that keep material knowledge alive. The sound of hammering, the pour of molten brass, the touch of clay moulds.</p>
+        </div>
+
+        <div class="practice-item">
+          <span class="tag">MAKE</span>
+          <h3>We edit with care</h3>
+          <p>Each object is reduced to what is useful, tactile and quietly lasting. Nothing extraneous is added; pure material speaks for itself.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  
+  <footer class="global-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h2>AALAYAM</h2>
+        <p class="tagline-italic">Aalayam — Temple of Art</p>
+        <p class="tagline-caps">OBJECTS OF HERITAGE.</p>
+      </div>
+
+      <div class="footer-nav-grid">
+        <div class="footer-col">
+          <h4>DISCOVER</h4>
+          <ul>
+            <li><a href="collection.html">Collection</a></li>
+            <li><a href="craft.html">Craft</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>CATEGORIES</h4>
+          <ul>
+            <li><a href="categories.html?filter=diyas">Diyas</a></li>
+            <li><a href="categories.html?filter=statues">Statues</a></li>
+            <li><a href="categories.html?filter=brass">Brass</a></li>
+            <li><a href="categories.html?filter=pooja">Pooja</a></li>
+            <li><a href="categories.html?filter=home">Home</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>HELP</h4>
+          <ul>
+            <li><a href="index.html#enquiry">Contact</a></li>
+            <li><a href="craft.html#care">Shipping</a></li>
+            <li><a href="craft.html#care">Returns</a></li>
+            <li><a href="craft.html#care">Care</a></li>
+            <li><a href="about.html">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>FOLLOW</h4>
+          <ul>
+            <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.pinterest.com/" target="_blank" rel="noopener">Pinterest</a></li>
+            <li><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© AALAYAM</div>
+      <div class="legal-links">
+        <a href="about.html">PRIVACY</a>
+        <a href="about.html">TERMS</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AALAYAM — Shop Handcrafted Brass & Heirloom Objects</title>
+  <meta name="description" content="Shop handcrafted Indian brassware: Diyas, Idols, Ritual Sets, Bowls, Bells and Home Sanctuary objects.">
+  <link rel="icon" href="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Brass_Lotus_Engraving_in_Warm_Light_jmnmju.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    /* =========================================================
+       E-COMMERCE STYLES FOR CATEGORIES PAGE
+       ========================================================= */
+
+    /* Trust / Value proposition banner */
+    .ecommerce-trust-strip {
+      background-color: var(--bg-card);
+      border-bottom: 1px solid var(--border-light);
+      padding: 18px 48px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .trust-item .icon {
+      color: var(--color-gold);
+      font-size: 16px;
+    }
+
+    /* Visual Category Tiles (Replacing the plain text boxes) */
+    .visual-categories-section {
+      padding: 60px 48px 40px 48px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .visual-categories-header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .visual-categories-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 400;
+      color: var(--text-primary);
+    }
+
+    .visual-categories-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px;
+    }
+
+    .visual-category-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      group: relative;
+    }
+
+    .visual-cat-img-box {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 14px;
+      border: 2px solid var(--border-medium);
+      background-color: var(--border-light);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .visual-cat-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .visual-category-card:hover .visual-cat-img-box {
+      border-color: var(--color-gold);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(169, 130, 74, 0.25);
+    }
+
+    .visual-category-card:hover .visual-cat-img-box img {
+      transform: scale(1.1);
+    }
+
+    .visual-cat-name {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+      transition: color 0.3s ease;
+    }
+
+    .visual-category-card:hover .visual-cat-name {
+      color: var(--color-gold);
+    }
+
+    .visual-cat-count {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    /* E-Commerce Toolbar */
+    .ecom-toolbar-wrap {
+      background-color: var(--bg-card);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      position: sticky;
+      top: 76px;
+      z-index: 100;
+      padding: 16px 48px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .ecom-toolbar {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    /* Category Filter Pills */
+    .cat-filter-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .cat-filter-pill {
+      background: transparent;
+      border: 1px solid var(--border-medium);
+      color: var(--text-primary);
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .cat-filter-pill .pill-count {
+      font-size: 9px;
+      background: rgba(0,0,0,0.06);
+      padding: 2px 6px;
+      border-radius: 10px;
+    }
+
+    [data-theme="dark"] .cat-filter-pill .pill-count {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .cat-filter-pill:hover,
+    .cat-filter-pill.active {
+      background: var(--text-primary);
+      color: var(--bg-primary);
+      border-color: var(--text-primary);
+    }
+
+    .cat-filter-pill.active .pill-count {
+      background: var(--color-gold);
+      color: #fff;
+    }
+
+    /* Search & Sort Controls */
+    .toolbar-controls {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .search-input-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--input-bg);
+      border: 1px solid var(--border-medium);
+      padding: 8px 14px;
+      border-radius: 4px;
+      width: 220px;
+      transition: var(--transition);
+    }
+
+    .search-input-box:focus-within {
+      border-color: var(--color-gold);
+      width: 260px;
+    }
+
+    .search-input-box input {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      color: var(--text-primary);
+      width: 100%;
+    }
+
+    .sort-select {
+      background: var(--input-bg);
+      border: 1px solid var(--border-medium);
+      padding: 8px 14px;
+      border-radius: 4px;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      outline: none;
+      cursor: pointer;
+    }
+
+    /* Catalog Section */
+    .catalog-main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 48px 48px 120px 48px;
+    }
+
+    .catalog-status-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+      font-size: 12px;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .ecom-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+    }
+
+    /* E-Commerce Product Card */
+    .ecom-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .ecom-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+      border-color: var(--color-gold);
+    }
+
+    .card-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 5;
+      background-color: var(--color-gold);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 4px 8px;
+      border-radius: 2px;
+    }
+
+    .wishlist-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 5;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 1px solid var(--border-medium);
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .wishlist-btn:hover, .wishlist-btn.active {
+      color: #e02424;
+      border-color: #e02424;
+      background-color: #fff;
+    }
+
+    .wishlist-btn.active svg {
+      fill: #e02424;
+    }
+
+    .card-img-wrap {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      position: relative;
+      background-color: var(--border-light);
+    }
+
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .ecom-card:hover .card-img-wrap img {
+      transform: scale(1.08);
+    }
+
+    .quick-view-overlay-btn {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%) translateY(40px);
+      background: var(--bg-dark);
+      color: var(--text-light);
+      border: 1px solid var(--border-dark);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      border-radius: 2px;
+      opacity: 0;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      white-space: nowrap;
+      z-index: 6;
+    }
+
+    .ecom-card:hover .quick-view-overlay-btn {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    .card-body {
+      padding: 22px 20px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .card-code {
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      font-weight: 600;
+    }
+
+    .card-rating {
+      font-size: 10px;
+      color: var(--color-gold);
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .card-rating .count {
+      color: var(--text-muted);
+      font-size: 9px;
+    }
+
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 21px;
+      font-weight: 400;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      line-height: 1.2;
+    }
+
+    .card-desc {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+
+    .card-material-badge {
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+    }
+
+    .card-footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-light);
+      padding-top: 16px;
+    }
+
+    .price-box {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .current-price {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .original-price {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+
+    .ecom-add-btn {
+      background: var(--text-primary);
+      color: var(--bg-primary);
+      border: 1px solid var(--text-primary);
+      padding: 9px 16px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ecom-add-btn:hover {
+      background: var(--color-gold);
+      border-color: var(--color-gold);
+      color: #fff;
+    }
+
+    /* Quick View Modal */
+    .quickview-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      z-index: 5000;
+      backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .quickview-modal.active {
+      display: flex;
+    }
+
+    .quickview-content {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      max-width: 900px;
+      width: 100%;
+      border: 1px solid var(--border-medium);
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+    }
+
+    .quickview-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: var(--text-primary);
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .quickview-img {
+      width: 100%;
+      height: 100%;
+      background: var(--border-light);
+    }
+
+    .quickview-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .quickview-details {
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .quickview-details h2 {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 400;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .quickview-details p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin: 16px 0 24px 0;
+    }
+
+    @media (max-width: 1100px) {
+      .visual-categories-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .ecom-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .quickview-content {
+        grid-template-columns: 1fr;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .visual-categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .ecom-grid {
+        grid-template-columns: 1fr;
+      }
+      .ecommerce-trust-strip, .visual-categories-section, .ecom-toolbar-wrap, .catalog-main {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      .search-input-box {
+        width: 100%;
+      }
+      .search-input-box:focus-within {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- SVG Sprite Definitions -->
+  <svg style="display: none;">
+    <symbol id="icon-arrow" viewBox="0 0 24 24">
+      <path d="M 5 12 L 19 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <path d="M 12 5 L 19 12 L 12 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </symbol>
+    <symbol id="icon-search" viewBox="0 0 24 24">
+      <path d="M 4.34 4.34 L 0 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(16.66 16.66)"/>
+      <path d="M 0 8 C 0 3.582 3.582 0 8 0 C 12.418 0 16 3.582 16 8 C 16 12.418 12.418 16 8 16 C 3.582 16 0 12.418 0 8 Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(3 3)"/>
+    </symbol>
+    <symbol id="icon-bag" viewBox="0 0 24 24">
+      <path d="M 8 0 C 8 2.209 6.209 4 4 4 C 1.791 4 0 2.209 0 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(8 10)"/>
+      <path d="M 0 0 L 17.794 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(3.103 6.034)"/>
+      <path d="M 0.4 3.467 C 0.14 3.813 0 4.234 0 4.667 L 0 18 C 0 19.105 0.895 20 2 20 L 16 20 C 17.105 20 18 19.105 18 18 L 18 4.667 C 18 4.234 17.86 3.813 17.6 3.467 L 15.6 0.8 C 15.222 0.296 14.63 0 14 0 L 4 0 C 3.37 0 2.778 0.296 2.4 0.8 Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(3 2)"/>
+    </symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24">
+      <path d="M 0 0 L 16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(4 6)"/>
+      <path d="M 0 0 L 16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(4 12)"/>
+      <path d="M 0 0 L 16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(4 18)"/>
+    </symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24">
+      <path d="M 5 5 L 19 19 M 19 5 L 5 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </symbol>
+    <symbol id="icon-heart" viewBox="0 0 24 24">
+      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke="currentColor" stroke-width="1.8" fill="none"/>
+    </symbol>
+    <symbol id="icon-star" viewBox="0 0 24 24">
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="currentColor"/>
+    </symbol>
+  </svg>
+
+  <!-- Global Header -->
+  <header class="header-wrapper header-solid" id="headerWrapper">
+    <div class="announcement-bar">
+      <div class="marquee-track">
+        <span>CRAFTED OBJECTS. ROOTED IN HERITAGE.</span>
+      </div>
+      <a href="collection.html" class="collection-link">
+        <span>DISCOVER THE COLLECTION</span>
+        <svg class="svg-icon"><use href="#icon-arrow"></use></svg>
+      </a>
+    </div>
+
+    <nav class="nav-bar">
+      <a href="index.html" class="brand-logo">AALAYAM</a>
+
+      <ul class="nav-links">
+        <li><a href="collection.html">Collection</a></li>
+        <li><a href="craft.html">Craft</a></li>
+        <li><a href="categories.html" class="active">Categories</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+
+      <ul class="utility-nav">
+        <li>
+          <button class="theme-toggle-btn" id="themeToggle" title="Toggle Theme" aria-label="Toggle Theme">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+        </li>
+        <li class="hide-mobile">
+          <a href="#search" onclick="openGlobalSearch(); return false;">
+            <svg class="svg-icon"><use href="#icon-search"></use></svg>
+            <span>SEARCH</span>
+          </a>
+        </li>
+        <li>
+          <a href="bag.html">
+            <svg class="svg-icon"><use href="#icon-bag"></use></svg>
+            <span>BAG</span>
+            <span class="bag-badge" style="display: none;">0</span>
+          </a>
+        </li>
+        <li>
+          <button class="mobile-menu-btn" id="openMobileMenu" aria-label="Open Navigation">
+            <svg class="svg-icon" style="width: 22px; height: 22px;"><use href="#icon-menu"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-header">
+      <span class="brand-logo">AALAYAM</span>
+      <button id="closeMobileMenu" aria-label="Close Navigation">
+        <svg class="svg-icon" style="width: 24px; height: 24px;"><use href="#icon-close"></use></svg>
+      </button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li><a href="index.html" class="mobile-link">HOME</a></li>
+      <li><a href="collection.html" class="mobile-link">COLLECTION</a></li>
+      <li><a href="craft.html" class="mobile-link">CRAFT</a></li>
+      <li><a href="categories.html" class="mobile-link active">CATEGORIES</a></li>
+      <li><a href="about.html" class="mobile-link">ABOUT</a></li>
+      <li><a href="bag.html" class="mobile-link">YOUR BAG</a></li>
+    </ul>
+    <div style="font-size: 11px; letter-spacing: 0.16em; color: rgba(243, 235, 221, 0.5);">
+      © AALAYAM. ROOTED IN HERITAGE.
+    </div>
+  </div>
+
+  <main>
+    <!-- Page Header Banner -->
+    <section class="page-header" style="padding-bottom: 50px;">
+      <span class="kicker">AALAYAM / HERITAGE EDITIONS</span>
+      <h1>SHOP BY CATEGORY</h1>
+      <p>Hand-finished brassware and ritual objects shaped for contemporary sanctuaries, thoughtful gifting, and daily reflection.</p>
+    </section>
+
+    <!-- Trust Strip -->
+    <div class="ecommerce-trust-strip">
+      <div class="trust-item">
+        <span class="icon">✦</span>
+        <span>100% Solid Virgin Brass</span>
+      </div>
+      <div class="trust-item">
+        <span class="icon">✦</span>
+        <span>Handcrafted in India</span>
+      </div>
+      <div class="trust-item">
+        <span class="icon">✦</span>
+        <span>Complimentary Shipping Over ₹5,000</span>
+      </div>
+      <div class="trust-item">
+        <span class="icon">✦</span>
+        <span>7-Day Easy Exchange</span>
+      </div>
+    </div>
+
+    <!-- Visual Category Tiles with Photos (Replacing the plain text boxes) -->
+    <section class="visual-categories-section">
+      <div class="visual-categories-header">
+        <span class="kicker">BROWSE BY CRAFT FAMILY</span>
+        <h2>Explore By Form</h2>
+      </div>
+
+      <div class="visual-categories-grid">
+        <div class="visual-category-card" onclick="filterByCat('diyas')">
+          <div class="visual-cat-img-box">
+            <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Sunlit_Antique_Brass_Urn_with_Flowers_aonm8t.png" alt="Diyas">
+          </div>
+          <span class="visual-cat-name">Diyas</span>
+          <span class="visual-cat-count">3 Objects</span>
+        </div>
+
+        <div class="visual-category-card" onclick="filterByCat('pooja')">
+          <div class="visual-cat-img-box">
+            <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051162/aalayam1_2_tkqv2u.jpg" alt="Pooja">
+          </div>
+          <span class="visual-cat-name">Pooja</span>
+          <span class="visual-cat-count">5 Objects</span>
+        </div>
+
+        <div class="visual-category-card" onclick="filterByCat('statues')">
+          <div class="visual-cat-img-box">
+            <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Brass_Lotus_Engraving_in_Warm_Light_jmnmju.png" alt="Statues">
+          </div>
+          <span class="visual-cat-name">Statues</span>
+          <span class="visual-cat-count">2 Objects</span>
+        </div>
+
+        <div class="visual-category-card" onclick="filterByCat('brass')">
+          <div class="visual-cat-img-box">
+            <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Sunlit_Antique_Brass_Urn_with_Flowers_aonm8t.png" alt="Vessels & Urns">
+          </div>
+          <span class="visual-cat-name">Vessels</span>
+          <span class="visual-cat-count">4 Objects</span>
+        </div>
+
+        <div class="visual-category-card" onclick="filterByCat('home')">
+          <div class="visual-cat-img-box">
+            <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051162/aalayam1_2_tkqv2u.jpg" alt="Home Decor">
+          </div>
+          <span class="visual-cat-name">Home</span>
+          <span class="visual-cat-count">5 Objects</span>
+        </div>
+
+        <div class="visual-category-card" onclick="filterByCat('gifting')">
+          <div class="visual-cat-img-box">
+            <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Brass_Lotus_Engraving_in_Warm_Light_jmnmju.png" alt="Gifting Boxes">
+          </div>
+          <span class="visual-cat-name">Gifting</span>
+          <span class="visual-cat-count">4 Objects</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sticky E-Commerce Filter Toolbar -->
+    <div class="ecom-toolbar-wrap" id="search">
+      <div class="ecom-toolbar">
+        <div class="cat-filter-pills" id="filterPills">
+          <button class="cat-filter-pill active" data-filter="all">ALL <span class="pill-count">12</span></button>
+          <button class="cat-filter-pill" data-filter="diyas">DIYAS <span class="pill-count">3</span></button>
+          <button class="cat-filter-pill" data-filter="pooja">POOJA <span class="pill-count">5</span></button>
+          <button class="cat-filter-pill" data-filter="statues">STATUES <span class="pill-count">2</span></button>
+          <button class="cat-filter-pill" data-filter="brass">VESSELS <span class="pill-count">4</span></button>
+          <button class="cat-filter-pill" data-filter="home">HOME <span class="pill-count">5</span></button>
+          <button class="cat-filter-pill" data-filter="gifting">GIFTING <span class="pill-count">4</span></button>
+        </div>
+
+        <div class="toolbar-controls">
+          <div class="search-input-box">
+            <svg class="svg-icon" style="width: 14px; height: 14px;"><use href="#icon-search"></use></svg>
+            <input type="text" id="searchInput" placeholder="Search objects..." oninput="handleSearch(this.value)">
+          </div>
+
+          <select class="sort-select" id="sortSelect" onchange="handleSort(this.value)">
+            <option value="featured">Sort: Featured</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="rating">Top Rated</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main E-Commerce Product Catalog -->
+    <section class="catalog-main" id="catalogSection">
+      <div class="catalog-status-bar">
+        <span id="resultsCount">Showing 12 Objects</span>
+        <span>In Stock & Ready to Dispatch</span>
+      </div>
+
+      <div class="ecom-grid" id="productGrid">
+        <!-- 1: Brass Bell -->
+        <div class="ecom-card" data-category="diyas pooja" data-price="3450" data-rating="5.0" data-name="KERALA STYLE VILAKKU">
+          <span class="card-badge">Masterpiece</span>
+          <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)" title="Save to Wishlist">
+            <svg class="svg-icon"><use href="#icon-heart"></use></svg>
+          </button>
+          <div class="card-img-wrap">
+            <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1794111889/Kerala_Style_Vilakku_Pro_06_6_lsrozw.jpg" alt="Kerala Style Vilakku" loading="lazy">
+            <button class="quick-view-overlay-btn" onclick="event.stopPropagation(); openQuickView('004')">Quick View</button>
+          </div>
+          <div class="card-body">
+            <div class="card-meta-row">
+              <span class="card-code">AALAYAM / 004</span>
+              <div class="card-rating">
+                <svg class="svg-icon" style="width: 11px; height: 11px;"><use href="#icon-star"></use></svg>
+                <span>5.0</span>
+                <span class="count">(38)</span>
+              </div>
+            </div>
+            <h3 class="card-title"><a href="product.html?id=004" style="color: inherit; text-decoration: none;">KERALA STYLE VILAKKU</a></h3>
+            <p class="card-desc">The revered 16-inch Nilavilakku of Kerala in solid bell-metal brass with classical tiered thalis.</p>
+            <span class="card-material-badge">Bell-Metal Brass · 16 Inches</span>
+            <div class="card-footer-row">
+              <div class="price-box">
+                <span class="current-price">₹3,450</span>
+                <span class="original-price">₹4,200</span>
+              </div>
+              <button class="ecom-add-btn" onclick="event.stopPropagation(); addToCart({id: '004', name: 'KERALA STYLE VILAKKU', code: 'AALAYAM / 004', price: 3450, image: 'https://res.cloudinary.com/deukqrxtt/image/upload/v1794111889/Kerala_Style_Vilakku_Pro_06_6_lsrozw.jpg', material: 'Solid Bell-Metal Brass'})">
+                <span>+ ADD TO BAG</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2: Deepam Stand -->
+        <div class="ecom-card" data-category="pooja home" data-price="2650" data-rating="4.9" data-name="ASHTALAKSHMI FLOWER BASKET">
+          <span class="card-badge">Sacred Reliefs</span>
+          <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)" title="Save to Wishlist">
+            <svg class="svg-icon"><use href="#icon-heart"></use></svg>
+          </button>
+          <div class="card-img-wrap">
+            <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1794112137/Ashtalakshmi_Flower_Basket_Pro_03_5_vmadyc.jpg" alt="Ashtalakshmi Flower Basket" loading="lazy">
+            <button class="quick-view-overlay-btn" onclick="event.stopPropagation(); openQuickView('005')">Quick View</button>
+          </div>
+          <div class="card-body">
+            <div class="card-meta-row">
+              <span class="card-code">AALAYAM / 005</span>
+              <div class="card-rating">
+                <svg class="svg-icon" style="width: 11px; height: 11px;"><use href="#icon-star"></use></svg>
+                <span>4.9</span>
+                <span class="count">(46)</span>
+              </div>
+            </div>
+            <h3 class="card-title"><a href="product.html?id=005" style="color: inherit; text-decoration: none;">ASHTALAKSHMI FLOWER BASKET</a></h3>
+            <p class="card-desc">Ceremonial brass flower basket embossed with the eight divine forms of Goddess Lakshmi.</p>
+            <span class="card-material-badge">Solid Brass · Swamimalai Craft</span>
+            <div class="card-footer-row">
+              <div class="price-box">
+                <span class="current-price">₹2,650</span>
+                <span class="original-price">₹3,200</span>
+              </div>
+              <button class="ecom-add-btn" onclick="event.stopPropagation(); addToCart({id: '005', name: 'ASHTALAKSHMI FLOWER BASKET', code: 'AALAYAM / 005', price: 2650, image: 'https://res.cloudinary.com/deukqrxtt/image/upload/v1794112137/Ashtalakshmi_Flower_Basket_Pro_03_5_vmadyc.jpg', material: 'Solid Brass · Ashta Lakshmi Reliefs'})">
+                <span>+ ADD TO BAG</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3: Incense Holder -->
+        <div class="ecom-card" data-category="brass pooja" data-price="4850" data-rating="5.0" data-name="ASHTALAKSHMI KALASH">
+          <span class="card-badge">Auspicious Icon</span>
+          <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)" title="Save to Wishlist">
+            <svg class="svg-icon"><use href="#icon-heart"></use></svg>
+          </button>
+          <div class="card-img-wrap">
+            <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1794112236/Ashtalakshmi_Kalash_Pro_02_2_rvsrhb.jpg" alt="Ashtalakshmi Kalash" loading="lazy">
+            <button class="quick-view-overlay-btn" onclick="event.stopPropagation(); openQuickView('006')">Quick View</button>
+          </div>
+          <div class="card-body">
+            <div class="card-meta-row">
+              <span class="card-code">AALAYAM / 006</span>
+              <div class="card-rating">
+                <svg class="svg-icon" style="width: 11px; height: 11px;"><use href="#icon-star"></use></svg>
+                <span>5.0</span>
+                <span class="count">(31)</span>
+              </div>
+            </div>
+            <h3 class="card-title"><a href="product.html?id=006" style="color: inherit; text-decoration: none;">ASHTALAKSHMI KALASH</a></h3>
+            <p class="card-desc">An auspicious sanctum Kalash pot embellished with high-relief Ashta Lakshmi carvings.</p>
+            <span class="card-material-badge">Heavy Brass · 1.8 kg</span>
+            <div class="card-footer-row">
+              <div class="price-box">
+                <span class="current-price">₹4,850</span>
+                <span class="original-price">₹5,800</span>
+              </div>
+              <button class="ecom-add-btn" onclick="event.stopPropagation(); addToCart({id: '006', name: 'ASHTALAKSHMI KALASH', code: 'AALAYAM / 006', price: 4850, image: 'https://res.cloudinary.com/deukqrxtt/image/upload/v1794112236/Ashtalakshmi_Kalash_Pro_02_2_rvsrhb.jpg', material: 'Heavy Solid Brass · 1.8 kg'})">
+                <span>+ ADD TO BAG</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4: Brass Bowl -->
+        <div class="ecom-card" data-category="pooja home brass" data-price="1950" data-rating="4.9" data-name="THE BRASS BOWL">
+          <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)" title="Save to Wishlist">
+            <svg class="svg-icon"><use href="#icon-heart"></use></svg>
+          </button>
+          <div class="card-img-wrap">
+            <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051162/aalayam1_2_tkqv2u.jpg" alt="The Brass Bowl" loading="lazy">
+            <button class="quick-view-overlay-btn" onclick="event.stopPropagation(); openQuickView('007')">Quick View</button>
+          </div>
+          <div class="card-body">
+            <div class="card-meta-row">
+              <span class="card-code">AALAYAM / 007</span>
+              <div class="card-rating">
+                <svg class="svg-icon" style="width: 11px; height: 11px;"><use href="#icon-star"></use></svg>
+                <span>4.9</span>
+                <span class="count">(35)</span>
+              </div>
+            </div>
+            <h3 class="card-title"><a href="product.html?id=007" style="color: inherit; text-decoration: none;">THE BRASS BOWL</a></h3>
+            <p class="card-desc">A versatile brass bowl for rituals, water flowers, or decorative table display.</p>
+            <span class="card-material-badge">Engraved Rim · Polished Basin</span>
+            <div class="card-footer-row">
+              <div class="price-box">
+                <span class="current-price">₹1,950</span>
+                <span class="original-price">₹2,400</span>
+              </div>
+              <button class="ecom-add-btn" onclick="event.stopPropagation(); addToCart({id: '007', name: 'THE BRASS BOWL', code: 'AALAYAM / 007', price: 1950, image: 'https://res.cloudinary.com/deukqrxtt/image/upload/v1790051162/aalayam1_2_tkqv2u.jpg', material: 'Handcrafted Brass'})">
+                <span>+ ADD TO BAG</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5: Lotus Bowl -->
+        <div class="ecom-card" data-category="home statues brass gifting" data-price="2450" data-rating="5.0" data-name="THE LOTUS BOWL">
+          <span class="card-badge">Staff Pick</span>
+          <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)" title="Save to Wishlist">
+            <svg class="svg-icon"><use href="#icon-heart"></use></svg>
+          </button>
+          <div class="card-img-wrap">
+            <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Brass_Lotus_Engraving_in_Warm_Light_jmnmju.png" alt="The Lotus Bowl" loading="lazy">
+            <button class="quick-view-overlay-btn" onclick="event.stopPropagation(); openQuickView('008')">Quick View</button>
+          </div>
+          <div class="card-body">
+            <div class="card-meta-row">
+              <span class="card-code">AALAYAM / 008</span>
+              <div class="card-rating">
+                <svg class="svg-icon" style="width: 11px; height: 11px;"><use href="#icon-star"></use></svg>
+                <span>5.0</span>
+                <span class="count">(51)</span>
+              </div>
+            </div>
+            <h3 class="card-title"><a href="product.html?id=008" style="color: inherit; text-decoration: none;">THE LOTUS BOWL</a></h3>
+            <p class="card-desc">A lotus-inspired sculpted bowl celebrating purity and classical sacred geometry.</p>
+            <span class="card-material-badge">Hand-Engraved Petals · Warm Luster</span>
+            <div class="card-footer-row">
+              <div class="price-box">
+                <span class="current-price">₹2,450</span>
+                <span class="original-price">₹2,900</span>
+              </div>
+              <button class="ecom-add-btn" onclick="event.stopPropagation(); addToCart({id: '008', name: 'THE LOTUS BOWL', code: 'AALAYAM / 008', price: 2450, image: 'https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Brass_Lotus_Engraving_in_Warm_Light_jmnmju.png', material: 'Hand-Engraved Brass'})">
+                <span>+ ADD TO BAG</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6: Arati Lamp -->
+        <div class="ecom-card" data-category="diyas pooja brass" data-price="2950" data-rating="4.9" data-name="THE ARATI LAMP">
+          <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)" title="Save to Wishlist">
+            <svg class="svg-icon"><use href="#icon-heart"></use></svg>
+          </button>
+          <div class="card-img-wrap">
+            <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Sunlit_Antique_Brass_Urn_with_Flowers_aonm8t.png" alt="The Arati Lamp" loading="lazy">
+            <button class="quick-view-overlay-btn" onclick="event.stopPropagation(); openQuickView('009')">Quick View</button>
+          </div>
+          <div class="card-body">
+            <div class="card-meta-row">
+              <span class="card-code">AALAYAM / 009</span>
+              <div class="card-rating">
+                <svg class="svg-icon" style="width: 11px; height: 11px;"><use href="#icon-star"></use></svg>
+                <span>4.9</span>
+                <span class="count">(24)</span>
+              </div>
+            </div>
+            <h3 class="card-title"><a href="product.html?id=009" style="color: inherit; text-decoration: none;">THE ARATI LAMP</a></h3>
+            <p class="card-desc">A balanced ceremonial lamp with a curved ergonomic wood & brass handle.</p>
+            <span class="card-material-badge">Multi-wick Brass Reservoir</span>
+            <div class="card-footer-row">
+              <div class="price-box">
+                <span class="current-price">₹2,950</span>
+                <span class="original-price">₹3,500</span>
+              </div>
+              <button class="ecom-add-btn" onclick="event.stopPropagation(); addToCart({id: '009', name: 'THE ARATI LAMP', code: 'AALAYAM / 009', price: 2950, image: 'https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Sunlit_Antique_Brass_Urn_with_Flowers_aonm8t.png', material: 'Ceremonial Brass'})">
+                <span>+ ADD TO BAG</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7: Kumkum Box -->
+        <div class="ecom-card" data-category="pooja gifting brass" data-price="950" data-rating="4.7" data-name="THE KUMKUM BOX">
+          <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)" title="Save to Wishlist">
+            <svg class="svg-icon"><use href="#icon-heart"></use></svg>
+          </button>
+          <div class="card-img-wrap">
+            <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051162/aalayam1_2_tkqv2u.jpg" alt="The Kumkum Box" loading="lazy">
+            <button class="quick-view-overlay-btn" onclick="event.stopPropagation(); openQuickView('010')">Quick View</button>
+          </div>
+          <div class="card-body">
+            <div class="card-meta-row">
+              <span class="card-code">AALAYAM / 010</span>
+              <div class="card-rating">
+                <svg class="svg-icon" style="width: 11px; height: 11px;"><use href="#icon-star"></use></svg>
+                <span>4.7</span>
+                <span class="count">(63)</span>
+              </div>
+            </div>
+            <h3 class="card-title"><a href="product.html?id=010" style="color: inherit; text-decoration: none;">THE KUMKUM BOX</a></h3>
+            <p class="card-desc">A snug-lidded brass capsule designed for sacred powders and precious keepsakes.</p>
+            <span class="card-material-badge">Lathe-Finished Brass Box</span>
+            <div class="card-footer-row">
+              <div class="price-box">
+                <span class="current-price">₹950</span>
+                <span class="original-price">₹1,200</span>
+              </div>
+              <button class="ecom-add-btn" onclick="event.stopPropagation(); addToCart({id: '010', name: 'THE KUMKUM BOX', code: 'AALAYAM / 010', price: 950, image: 'https://res.cloudinary.com/deukqrxtt/image/upload/v1790051162/aalayam1_2_tkqv2u.jpg', material: 'Lathe-Finished Brass'})">
+                <span>+ ADD TO BAG</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8: Heritage Tray -->
+        <div class="ecom-card" data-category="home gifting brass" data-price="3200" data-rating="4.9" data-name="THE HERITAGE TRAY">
+          <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)" title="Save to Wishlist">
+            <svg class="svg-icon"><use href="#icon-heart"></use></svg>
+          </button>
+          <div class="card-img-wrap">
+            <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Sunlit_Antique_Brass_Urn_with_Flowers_aonm8t.png" alt="The Heritage Tray" loading="lazy">
+            <button class="quick-view-overlay-btn" onclick="event.stopPropagation(); openQuickView('011')">Quick View</button>
+          </div>
+          <div class="card-body">
+            <div class="card-meta-row">
+              <span class="card-code">AALAYAM / 011</span>
+              <div class="card-rating">
+                <svg class="svg-icon" style="width: 11px; height: 11px;"><use href="#icon-star"></use></svg>
+                <span>4.9</span>
+                <span class="count">(31)</span>
+              </div>
+            </div>
+            <h3 class="card-title"><a href="product.html?id=011" style="color: inherit; text-decoration: none;">THE HERITAGE TRAY</a></h3>
+            <p class="card-desc">A wide 12-inch hand-hammered platter designed for tea service, offerings, or consoles.</p>
+            <span class="card-material-badge">Heavy Brass Gauge · 12 Inches</span>
+            <div class="card-footer-row">
+              <div class="price-box">
+                <span class="current-price">₹3,200</span>
+                <span class="original-price">₹3,800</span>
+              </div>
+              <button class="ecom-add-btn" onclick="event.stopPropagation(); addToCart({id: '011', name: 'THE HERITAGE TRAY', code: 'AALAYAM / 011', price: 3200, image: 'https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Sunlit_Antique_Brass_Urn_with_Flowers_aonm8t.png', material: 'Hammered Brass Platter'})">
+                <span>+ ADD TO BAG</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9: Brass Urn -->
+        <div class="ecom-card" data-category="home statues brass" data-price="5800" data-rating="5.0" data-name="THE BRASS URN">
+          <span class="card-badge">Masterpiece</span>
+          <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)" title="Save to Wishlist">
+            <svg class="svg-icon"><use href="#icon-heart"></use></svg>
+          </button>
+          <div class="card-img-wrap">
+            <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Sunlit_Antique_Brass_Urn_with_Flowers_aonm8t.png" alt="The Brass Urn" loading="lazy">
+            <button class="quick-view-overlay-btn" onclick="event.stopPropagation(); openQuickView('012')">Quick View</button>
+          </div>
+          <div class="card-body">
+            <div class="card-meta-row">
+              <span class="card-code">AALAYAM / 012</span>
+              <div class="card-rating">
+                <svg class="svg-icon" style="width: 11px; height: 11px;"><use href="#icon-star"></use></svg>
+                <span>5.0</span>
+                <span class="count">(17)</span>
+              </div>
+            </div>
+            <h3 class="card-title"><a href="product.html?id=012" style="color: inherit; text-decoration: none;">THE BRASS URN</a></h3>
+            <p class="card-desc">A monumental sculptural vessel designed as an anchor centerpiece for the modern home.</p>
+            <span class="card-material-badge">Double-Handled Antique Silhouette</span>
+            <div class="card-footer-row">
+              <div class="price-box">
+                <span class="current-price">₹5,800</span>
+                <span class="original-price">₹6,800</span>
+              </div>
+              <button class="ecom-add-btn" onclick="event.stopPropagation(); addToCart({id: '012', name: 'THE BRASS URN', code: 'AALAYAM / 012', price: 5800, image: 'https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Sunlit_Antique_Brass_Urn_with_Flowers_aonm8t.png', material: 'Solid Antique Brass Urn'})">
+                <span>+ ADD TO BAG</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10: Small Deepa -->
+        <div class="ecom-card" data-category="diyas pooja" data-price="850" data-rating="4.8" data-name="THE SMALL DEEPA">
+          <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)" title="Save to Wishlist">
+            <svg class="svg-icon"><use href="#icon-heart"></use></svg>
+          </button>
+          <div class="card-img-wrap">
+            <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051162/aalayam1_2_tkqv2u.jpg" alt="The Small Deepa" loading="lazy">
+            <button class="quick-view-overlay-btn" onclick="event.stopPropagation(); openQuickView('013')">Quick View</button>
+          </div>
+          <div class="card-body">
+            <div class="card-meta-row">
+              <span class="card-code">AALAYAM / 013</span>
+              <div class="card-rating">
+                <svg class="svg-icon" style="width: 11px; height: 11px;"><use href="#icon-star"></use></svg>
+                <span>4.8</span>
+                <span class="count">(88)</span>
+              </div>
+            </div>
+            <h3 class="card-title"><a href="product.html?id=013" style="color: inherit; text-decoration: none;">THE SMALL DEEPA</a></h3>
+            <p class="card-desc">A palm-sized diya crafted for peaceful morning prayer and warm evening lighting.</p>
+            <span class="card-material-badge">Cast Brass · High Thermal Resistance</span>
+            <div class="card-footer-row">
+              <div class="price-box">
+                <span class="current-price">₹850</span>
+                <span class="original-price">₹1,100</span>
+              </div>
+              <button class="ecom-add-btn" onclick="event.stopPropagation(); addToCart({id: '013', name: 'THE SMALL DEEPA', code: 'AALAYAM / 013', price: 850, image: 'https://res.cloudinary.com/deukqrxtt/image/upload/v1790051162/aalayam1_2_tkqv2u.jpg', material: 'Cast Brass Diya'})">
+                <span>+ ADD TO BAG</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11: Object Box -->
+        <div class="ecom-card" data-category="gifting home brass" data-price="2650" data-rating="4.9" data-name="THE OBJECT BOX">
+          <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)" title="Save to Wishlist">
+            <svg class="svg-icon"><use href="#icon-heart"></use></svg>
+          </button>
+          <div class="card-img-wrap">
+            <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Brass_Lotus_Engraving_in_Warm_Light_jmnmju.png" alt="The Object Box" loading="lazy">
+            <button class="quick-view-overlay-btn" onclick="event.stopPropagation(); openQuickView('014')">Quick View</button>
+          </div>
+          <div class="card-body">
+            <div class="card-meta-row">
+              <span class="card-code">AALAYAM / 014</span>
+              <div class="card-rating">
+                <svg class="svg-icon" style="width: 11px; height: 11px;"><use href="#icon-star"></use></svg>
+                <span>4.9</span>
+                <span class="count">(29)</span>
+              </div>
+            </div>
+            <h3 class="card-title"><a href="product.html?id=014" style="color: inherit; text-decoration: none;">THE OBJECT BOX</a></h3>
+            <p class="card-desc">A lined keepsake brass casket designed for heirloom jewelry, sacred rosaries, and gifts.</p>
+            <span class="card-material-badge">Precision Hinged Brass Box</span>
+            <div class="card-footer-row">
+              <div class="price-box">
+                <span class="current-price">₹2,650</span>
+                <span class="original-price">₹3,100</span>
+              </div>
+              <button class="ecom-add-btn" onclick="event.stopPropagation(); addToCart({id: '014', name: 'THE OBJECT BOX', code: 'AALAYAM / 014', price: 2650, image: 'https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Brass_Lotus_Engraving_in_Warm_Light_jmnmju.png', material: 'Hinged Brass Box'})">
+                <span>+ ADD TO BAG</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 12: Brass Candle Holder -->
+        <div class="ecom-card" data-category="home diyas brass" data-price="1750" data-rating="4.8" data-name="THE BRASS CANDLE HOLDER">
+          <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)" title="Save to Wishlist">
+            <svg class="svg-icon"><use href="#icon-heart"></use></svg>
+          </button>
+          <div class="card-img-wrap">
+            <img src="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Sunlit_Antique_Brass_Urn_with_Flowers_aonm8t.png" alt="The Brass Candle Holder" loading="lazy">
+            <button class="quick-view-overlay-btn" onclick="event.stopPropagation(); openQuickView('015')">Quick View</button>
+          </div>
+          <div class="card-body">
+            <div class="card-meta-row">
+              <span class="card-code">AALAYAM / 015</span>
+              <div class="card-rating">
+                <svg class="svg-icon" style="width: 11px; height: 11px;"><use href="#icon-star"></use></svg>
+                <span>4.8</span>
+                <span class="count">(14)</span>
+              </div>
+            </div>
+            <h3 class="card-title"><a href="product.html?id=015" style="color: inherit; text-decoration: none;">THE BRASS CANDLE HOLDER</a></h3>
+            <p class="card-desc">A solid tapered candle stand providing architectural calm and golden reflection.</p>
+            <span class="card-material-badge">Heavy Weighted Base · 9 Inches</span>
+            <div class="card-footer-row">
+              <div class="price-box">
+                <span class="current-price">₹1,750</span>
+                <span class="original-price">₹2,100</span>
+              </div>
+              <button class="ecom-add-btn" onclick="event.stopPropagation(); addToCart({id: '015', name: 'THE BRASS CANDLE HOLDER', code: 'AALAYAM / 015', price: 1750, image: 'https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Sunlit_Antique_Brass_Urn_with_Flowers_aonm8t.png', material: 'Weighted Brass Candlestick'})">
+                <span>+ ADD TO BAG</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Quick View Modal -->
+  <div class="quickview-modal" id="quickViewModal">
+    <div class="quickview-content">
+      <button class="quickview-close" onclick="closeQuickView()">&times;</button>
+      <div class="quickview-img">
+        <img id="modalImg" src="" alt="">
+      </div>
+      <div class="quickview-details">
+        <span class="kicker" id="modalCode">AALAYAM / OBJECT</span>
+        <h2 id="modalTitle">OBJECT NAME</h2>
+        <div class="card-rating" style="margin-bottom: 12px;">
+          <svg class="svg-icon" style="width: 12px; height: 12px;"><use href="#icon-star"></use></svg>
+          <span id="modalRating">5.0</span>
+          <span style="color: var(--text-muted); font-size: 11px; margin-left: 4px;">· Verified Collector Review</span>
+        </div>
+        <div style="font-family: var(--font-serif); font-size: 28px; color: var(--text-primary); margin-bottom: 8px;">
+          <span id="modalPrice">₹0</span>
+        </div>
+        <p id="modalDesc">Detailed description here.</p>
+        <span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-gold); font-weight: 600; margin-bottom: 24px; display: block;" id="modalMat">Solid Brass · Made in India</span>
+        <button class="btn-solid-dark" id="modalAddBtn">
+          <span>ADD TO BAG</span>
+          <svg class="svg-icon"><use href="#icon-arrow"></use></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Footer -->
+  <footer class="global-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h2>AALAYAM</h2>
+        <p class="tagline-italic">Aalayam — Temple of Art</p>
+        <p class="tagline-caps">OBJECTS OF HERITAGE.</p>
+      </div>
+
+      <div class="footer-nav-grid">
+        <div class="footer-col">
+          <h4>DISCOVER</h4>
+          <ul>
+            <li><a href="collection.html">Collection</a></li>
+            <li><a href="craft.html">Craft</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>CATEGORIES</h4>
+          <ul>
+            <li><a href="categories.html?filter=diyas">Diyas</a></li>
+            <li><a href="categories.html?filter=statues">Statues</a></li>
+            <li><a href="categories.html?filter=brass">Brass</a></li>
+            <li><a href="categories.html?filter=pooja">Pooja</a></li>
+            <li><a href="categories.html?filter=home">Home</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>HELP</h4>
+          <ul>
+            <li><a href="index.html#enquiry">Contact</a></li>
+            <li><a href="craft.html#care">Shipping</a></li>
+            <li><a href="craft.html#care">Returns</a></li>
+            <li><a href="craft.html#care">Care</a></li>
+            <li><a href="about.html">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>FOLLOW</h4>
+          <ul>
+            <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.pinterest.com/" target="_blank" rel="noopener">Pinterest</a></li>
+            <li><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© AALAYAM</div>
+      <div class="legal-links">
+        <a href="about.html">PRIVACY</a>
+        <a href="about.html">TERMS</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // E-Commerce Filtering, Search and Sorting
+    let activeCategory = 'all';
+    let searchQuery = '';
+
+    const cards = Array.from(document.querySelectorAll('.ecom-card'));
+    const pills = document.querySelectorAll('.cat-filter-pill');
+    const resultsCountEl = document.getElementById('resultsCount');
+
+    function filterByCat(cat) {
+      activeCategory = cat;
+      pills.forEach(p => p.classList.toggle('active', p.getAttribute('data-filter') === cat));
+      applyAllFilters();
+      const catSection = document.getElementById('catalogSection');
+      if (catSection) {
+        catSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        filterByCat(pill.getAttribute('data-filter'));
+      });
+    });
+
+    // Check URL parameters for category deep-linking
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialFilter = urlParams.get('filter');
+    if (initialFilter) {
+      filterByCat(initialFilter);
+    }
+
+    function handleSearch(val) {
+      searchQuery = val.toLowerCase().trim();
+      applyAllFilters();
+    }
+
+    function applyAllFilters() {
+      let visibleCount = 0;
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-category') || '';
+        const name = (card.getAttribute('data-name') || '').toLowerCase();
+        const desc = card.querySelector('.card-desc').textContent.toLowerCase();
+        
+        const matchesCat = activeCategory === 'all' || cat.includes(activeCategory);
+        const matchesSearch = !searchQuery || name.includes(searchQuery) || desc.includes(searchQuery);
+
+        if (matchesCat && matchesSearch) {
+          card.style.display = 'flex';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      resultsCountEl.textContent = `Showing ${visibleCount} Object${visibleCount === 1 ? '' : 's'}`;
+    }
+
+    function handleSort(order) {
+      const grid = document.getElementById('productGrid');
+      const sortedCards = [...cards];
+
+      if (order === 'price-low') {
+        sortedCards.sort((a, b) => Number(a.getAttribute('data-price')) - Number(b.getAttribute('data-price')));
+      } else if (order === 'price-high') {
+        sortedCards.sort((a, b) => Number(b.getAttribute('data-price')) - Number(a.getAttribute('data-price')));
+      } else if (order === 'rating') {
+        sortedCards.sort((a, b) => Number(b.getAttribute('data-rating')) - Number(a.getAttribute('data-rating')));
+      }
+
+      sortedCards.forEach(c => grid.appendChild(c));
+    }
+
+    function toggleWishlist(btn) {
+      btn.classList.toggle('active');
+      const isActive = btn.classList.contains('active');
+      showToast(isActive ? 'Added to Wishlist' : 'Removed from Wishlist');
+    }
+
+    // Quick View Modal Data
+    const productsData = {
+      '004': { name: 'KERALA STYLE VILAKKU', code: 'AALAYAM / 004', price: '₹3,450', numPrice: 3450, rating: '5.0 (38 reviews)', img: 'https://res.cloudinary.com/deukqrxtt/image/upload/v1794111889/Kerala_Style_Vilakku_Pro_06_6_lsrozw.jpg', desc: 'The revered 16-inch Nilavilakku of Kerala in solid bell-metal brass with fluted tiered oil wells.', mat: 'Solid Bell-Metal Brass · 16 Inches' },
+      '005': { name: 'ASHTALAKSHMI FLOWER BASKET', code: 'AALAYAM / 005', price: '₹2,650', numPrice: 2650, rating: '4.9 (46 reviews)', img: 'https://res.cloudinary.com/deukqrxtt/image/upload/v1794112137/Ashtalakshmi_Flower_Basket_Pro_03_5_vmadyc.jpg', desc: 'A ceremonial brass flower basket embossed with the eight divine manifestations of Goddess Lakshmi.', mat: 'Solid Brass · Ashta Lakshmi Reliefs' },
+      '006': { name: 'ASHTALAKSHMI KALASH', code: 'AALAYAM / 006', price: '₹4,850', numPrice: 4850, rating: '5.0 (31 reviews)', img: 'https://res.cloudinary.com/deukqrxtt/image/upload/v1794112236/Ashtalakshmi_Kalash_Pro_02_2_rvsrhb.jpg', desc: 'An auspicious sanctum Kalash pot embellished with high-relief Ashta Lakshmi carvings.', mat: 'Heavy Solid Brass · 1.8 kg' },
+      '007': { name: 'THE BRASS BOWL', code: 'AALAYAM / 007', price: '₹1,950', numPrice: 1950, rating: '4.9 (35 reviews)', img: 'https://res.cloudinary.com/deukqrxtt/image/upload/v1790051162/aalayam1_2_tkqv2u.jpg', desc: 'A versatile brass bowl for rituals, water flowers, or decorative table display. Hand-hammered with subtle tonal shifts.', mat: 'Engraved Rim · Polished Basin' },
+      '008': { name: 'THE LOTUS BOWL', code: 'AALAYAM / 008', price: '₹2,450', numPrice: 2450, rating: '5.0 (51 reviews)', img: 'https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Brass_Lotus_Engraving_in_Warm_Light_jmnmju.png', desc: 'A lotus-inspired sculpted bowl celebrating sacred symmetry and organic hand-carved petal details.', mat: 'Hand-Engraved Petals · Warm Luster' },
+      '009': { name: 'THE ARATI LAMP', code: 'AALAYAM / 009', price: '₹2,950', numPrice: 2950, rating: '4.9 (24 reviews)', img: 'https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Sunlit_Antique_Brass_Urn_with_Flowers_aonm8t.png', desc: 'A ceremonial five-wick lamp with a curved ergonomic handle, designed for timeless festive celebrations.', mat: 'Ceremonial Brass Alloy' },
+      '010': { name: 'THE KUMKUM BOX', code: 'AALAYAM / 010', price: '₹950', numPrice: 950, rating: '4.7 (63 reviews)', img: 'https://res.cloudinary.com/deukqrxtt/image/upload/v1790051162/aalayam1_2_tkqv2u.jpg', desc: 'A snug-lidded brass capsule designed for sacred powders, turmeric, and small family keepsakes.', mat: 'Lathe-Finished Brass Box' },
+      '011': { name: 'THE HERITAGE TRAY', code: 'AALAYAM / 011', price: '₹3,200', numPrice: 3200, rating: '4.9 (31 reviews)', img: 'https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Sunlit_Antique_Brass_Urn_with_Flowers_aonm8t.png', desc: 'A wide 12-inch hand-hammered platter designed for tea service, floral arrangements, or foyer tables.', mat: 'Heavy Brass Gauge · 12 Inches' },
+      '012': { name: 'THE BRASS URN', code: 'AALAYAM / 012', price: '₹5,800', numPrice: 5800, rating: '5.0 (17 reviews)', img: 'https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Sunlit_Antique_Brass_Urn_with_Flowers_aonm8t.png', desc: 'A monumental sculptural vessel designed as an anchor centerpiece for modern architectural spaces.', mat: 'Solid Antique Brass Urn' },
+      '013': { name: 'THE SMALL DEEPA', code: 'AALAYAM / 013', price: '₹850', numPrice: 850, rating: '4.8 (88 reviews)', img: 'https://res.cloudinary.com/deukqrxtt/image/upload/v1790051162/aalayam1_2_tkqv2u.jpg', desc: 'A palm-sized diya crafted for peaceful morning prayer and warm golden candlelight.', mat: 'Cast Brass Diya' },
+      '014': { name: 'THE OBJECT BOX', code: 'AALAYAM / 014', price: '₹2,650', numPrice: 2650, rating: '4.9 (29 reviews)', img: 'https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Brass_Lotus_Engraving_in_Warm_Light_jmnmju.png', desc: 'A lined keepsake brass casket designed for heirloom jewelry and ceremonial gifting.', mat: 'Hinged Brass Box' },
+      '015': { name: 'THE BRASS CANDLE HOLDER', code: 'AALAYAM / 015', price: '₹1,750', numPrice: 1750, rating: '4.8 (14 reviews)', img: 'https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Sunlit_Antique_Brass_Urn_with_Flowers_aonm8t.png', desc: 'A solid tapered candlestick providing architectural calm and golden candle flame reflections.', mat: 'Weighted Brass Candlestick' }
+    };
+
+    function openQuickView(id) {
+      const data = productsData[id];
+      if (!data) return;
+      document.getElementById('modalImg').src = data.img;
+      document.getElementById('modalImg').alt = data.name;
+      document.getElementById('modalCode').textContent = data.code;
+      document.getElementById('modalTitle').textContent = data.name;
+      document.getElementById('modalRating').textContent = data.rating;
+      document.getElementById('modalPrice').textContent = data.price;
+      document.getElementById('modalDesc').textContent = data.desc;
+      document.getElementById('modalMat').textContent = data.mat;
+      
+      const addBtn = document.getElementById('modalAddBtn');
+      addBtn.onclick = () => {
+        addToCart({ id: id, name: data.name, code: data.code, price: data.numPrice, image: data.img, material: data.mat });
+        closeQuickView();
+      };
+
+      document.getElementById('quickViewModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeQuickView() {
+      document.getElementById('quickViewModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('quickViewModal');
+      if (event.target === modal) {
+        closeQuickView();
+      }
+    };
+  </script>
+</body>
+</html>

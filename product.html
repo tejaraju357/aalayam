@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="pageTitle">AALAYAM — Object Detail</title>
+  <meta name="description" id="pageMetaDesc" content="Handcrafted solid brass heirloom objects shaped for contemporary sanctuaries.">
+  <link rel="icon" href="https://res.cloudinary.com/deukqrxtt/image/upload/v1790051166/Brass_Lotus_Engraving_in_Warm_Light_jmnmju.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- SVG Icons -->
+  <svg style="display: none;">
+    <symbol id="icon-arrow" viewBox="0 0 24 24">
+      <path d="M 5 12 L 19 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <path d="M 12 5 L 19 12 L 12 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </symbol>
+    <symbol id="icon-search" viewBox="0 0 24 24">
+      <path d="M 4.34 4.34 L 0 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(16.66 16.66)"/>
+      <path d="M 0 8 C 0 3.582 3.582 0 8 0 C 12.418 0 16 3.582 16 8 C 16 12.418 12.418 16 8 16 C 3.582 16 0 12.418 0 8 Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(3 3)"/>
+    </symbol>
+    <symbol id="icon-bag" viewBox="0 0 24 24">
+      <path d="M 8 0 C 8 2.209 6.209 4 4 4 C 1.791 4 0 2.209 0 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(8 10)"/>
+      <path d="M 0 0 L 17.794 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(3.103 6.034)"/>
+      <path d="M 0.4 3.467 C 0.14 3.813 0 4.234 0 4.667 L 0 18 C 0 19.105 0.895 20 2 20 L 16 20 C 17.105 20 18 19.105 18 18 L 18 4.667 C 18 4.234 17.86 3.813 17.6 3.467 L 15.6 0.8 C 15.222 0.296 14.63 0 14 0 L 4 0 C 3.37 0 2.778 0.296 2.4 0.8 Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(3 2)"/>
+    </symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24">
+      <path d="M 0 0 L 16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(4 6)"/>
+      <path d="M 0 0 L 16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(4 12)"/>
+      <path d="M 0 0 L 16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(4 18)"/>
+    </symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24">
+      <path d="M 5 5 L 19 19 M 19 5 L 5 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </symbol>
+    <symbol id="icon-star" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+    </symbol>
+    <symbol id="icon-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+    </symbol>
+  </svg>
+
+  <!-- Global Header -->
+  <header class="header-wrapper header-solid" id="headerWrapper">
+    <div class="announcement-bar">
+      <div class="marquee-track">
+        <span>CRAFTED OBJECTS. ROOTED IN HERITAGE.</span>
+      </div>
+      <a href="collection.html" class="collection-link">
+        <span>DISCOVER THE COLLECTION</span>
+        <svg class="svg-icon"><use href="#icon-arrow"></use></svg>
+      </a>
+    </div>
+
+    <nav class="nav-bar">
+      <a href="index.html" class="brand-logo">AALAYAM</a>
+
+      <ul class="nav-links">
+        <li><a href="collection.html">Collection</a></li>
+        <li><a href="craft.html">Craft</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+
+      <ul class="utility-nav">
+        <li>
+          <button class="theme-toggle-btn" id="themeToggle" title="Toggle Theme" aria-label="Toggle Theme">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+        </li>
+        <li class="hide-mobile">
+          <a href="#search" onclick="openGlobalSearch(); return false;">
+            <svg class="svg-icon"><use href="#icon-search"></use></svg>
+            <span>SEARCH</span>
+          </a>
+        </li>
+        <li>
+          <a href="bag.html">
+            <svg class="svg-icon"><use href="#icon-bag"></use></svg>
+            <span>BAG</span>
+            <span class="bag-badge" style="display: none;">0</span>
+          </a>
+        </li>
+        <li>
+          <button class="mobile-menu-btn" id="openMobileMenu" aria-label="Open Navigation">
+            <svg class="svg-icon" style="width: 22px; height: 22px;"><use href="#icon-menu"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-header">
+      <span class="brand-logo">AALAYAM</span>
+      <button id="closeMobileMenu" aria-label="Close Navigation">
+        <svg class="svg-icon" style="width: 24px; height: 24px;"><use href="#icon-close"></use></svg>
+      </button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li><a href="index.html" class="mobile-link">HOME</a></li>
+      <li><a href="collection.html" class="mobile-link">COLLECTION</a></li>
+      <li><a href="craft.html" class="mobile-link">CRAFT</a></li>
+      <li><a href="categories.html" class="mobile-link">CATEGORIES</a></li>
+      <li><a href="about.html" class="mobile-link">ABOUT</a></li>
+      <li><a href="bag.html" class="mobile-link">YOUR BAG</a></li>
+    </ul>
+    <div style="font-size: 11px; letter-spacing: 0.16em; color: rgba(243, 235, 221, 0.5);">
+      © AALAYAM. ROOTED IN HERITAGE.
+    </div>
+  </div>
+
+  <main>
+    <!-- Breadcrumb -->
+    <div class="pdp-breadcrumb-wrap">
+      <div class="pdp-breadcrumb" id="pdpBreadcrumb">
+        <a href="index.html">HOME</a>
+        <span class="sep">/</span>
+        <a href="categories.html">CATEGORIES</a>
+        <span class="sep">/</span>
+        <a href="categories.html" id="breadCat">POOJA</a>
+        <span class="sep">/</span>
+        <span class="current" id="breadName">THE BRASS BELL</span>
+      </div>
+    </div>
+
+    <!-- Main PDP Layout -->
+    <section class="pdp-main-layout">
+      <!-- Left: Gallery -->
+      <div class="pdp-gallery-wrap">
+        <div class="pdp-main-image-box" id="pdpMainImageBox">
+          <img id="pdpMainImage" src="" alt="Aalayam Brass Object">
+          <video id="pdpMainVideo" controls playsinline loop style="display: none; width: 100%; height: 100%; object-fit: cover;"></video>
+          <div class="pdp-craft-watermark" id="pdpOriginTag">HAND-FINISHED · INDIA</div>
+        </div>
+        <div class="pdp-thumbs-strip" id="pdpThumbsStrip">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Right: Purchase & Details Panel -->
+      <div class="pdp-details-panel">
+        <div class="pdp-badge-row">
+          <span class="pdp-badge" id="pdpBadge">Heirloom Edition</span>
+          <span class="pdp-code" id="pdpCode">AALAYAM / 004</span>
+        </div>
+
+        <h1 class="pdp-title" id="pdpTitle">THE BRASS BELL</h1>
+
+        <a href="#reviews" class="pdp-rating-anchor">
+          <div class="pdp-stars">
+            <svg class="svg-icon" style="width: 14px; height: 14px;"><use href="#icon-star"></use></svg>
+            <svg class="svg-icon" style="width: 14px; height: 14px;"><use href="#icon-star"></use></svg>
+            <svg class="svg-icon" style="width: 14px; height: 14px;"><use href="#icon-star"></use></svg>
+            <svg class="svg-icon" style="width: 14px; height: 14px;"><use href="#icon-star"></use></svg>
+            <svg class="svg-icon" style="width: 14px; height: 14px;"><use href="#icon-star"></use></svg>
+          </div>
+          <span id="pdpRatingCount">4.9 (28 Verified Reviews)</span>
+          <span style="font-size: 11px; text-decoration: underline; color: var(--color-gold);">Read Reviews ↓</span>
+        </a>
+
+        <div class="pdp-price-box">
+          <span class="pdp-current-price" id="pdpPrice">₹1,850</span>
+          <span class="pdp-original-price" id="pdpOriginalPrice">₹2,200</span>
+          <span class="pdp-savings-pill" id="pdpSavings">Save 16%</span>
+        </div>
+
+        <div class="pdp-tax-note">Taxes included. Complimentary shipping on orders over ₹5,000.</div>
+
+        <div class="pdp-stock-indicator">
+          <span class="dot"></span>
+          <span id="pdpStockStatus">In Stock · Ready to dispatch within 24 hours</span>
+        </div>
+
+        <p class="pdp-desc-intro" id="pdpDesc">
+          A compact solid brass prayer bell engineered with a resonant acoustic clapper and an unadorned, sculptural silhouette. Hand-poured and burnished by traditional bell-metal metalworkers.
+        </p>
+
+        <!-- Actions -->
+        <div class="pdp-action-area">
+          <div class="pdp-qty-and-cart">
+            <div class="pdp-qty-stepper">
+              <button class="pdp-qty-btn" onclick="adjustPdpQty(-1)">−</button>
+              <span class="pdp-qty-val" id="pdpQtyVal">1</span>
+              <button class="pdp-qty-btn" onclick="adjustPdpQty(1)">+</button>
+            </div>
+            <button class="pdp-add-bag-btn" id="pdpAddBagBtn">
+              <svg class="svg-icon" style="width: 16px; height: 16px;"><use href="#icon-bag"></use></svg>
+              <span>+ ADD TO BAG</span>
+            </button>
+            <button class="wishlist-btn" onclick="toggleWishlist(this)" title="Save to Wishlist" style="position: static; width: 52px; height: 52px; border: 1px solid var(--border-medium); border-radius: 0;">
+              <svg class="svg-icon" style="width: 20px; height: 20px;"><use href="#icon-heart"></use></svg>
+            </button>
+          </div>
+
+          <button class="pdp-buy-now-btn" id="pdpBuyNowBtn">
+            <span>BUY NOW (EXPRESS CHECKOUT)</span>
+            <svg class="svg-icon"><use href="#icon-arrow"></use></svg>
+          </button>
+        </div>
+
+        <!-- Trust Strip -->
+        <div class="pdp-trust-strip">
+          <div class="pdp-trust-item">
+            <span class="icon">✦</span>
+            <span>100% Solid Virgin Brass</span>
+          </div>
+          <div class="pdp-trust-item">
+            <span class="icon">✦</span>
+            <span>Hand-finished in India</span>
+          </div>
+          <div class="pdp-trust-item">
+            <span class="icon">✦</span>
+            <span>7-Day Easy Exchange</span>
+          </div>
+          <div class="pdp-trust-item">
+            <span class="icon">✦</span>
+            <span>Heirloom Gift Packaging</span>
+          </div>
+        </div>
+
+        <!-- Accordions -->
+        <div class="pdp-accordion-group">
+          <!-- Tab 1: Dimensions & Specs -->
+          <div class="pdp-accordion-item active">
+            <button class="pdp-accordion-header" onclick="togglePdpAccordion(this)">
+              <span>SPECIFICATIONS & MATERIAL</span>
+              <span class="acc-icon">+</span>
+            </button>
+            <div class="pdp-accordion-body">
+              <div class="pdp-accordion-content">
+                <table class="pdp-spec-table">
+                  <tr>
+                    <th>Material</th>
+                    <td id="specMaterial">Solid Brass · Pure Alloy</td>
+                  </tr>
+                  <tr>
+                    <th>Dimensions</th>
+                    <td id="specDimensions">4.5" Height × 3.0" Diameter</td>
+                  </tr>
+                  <tr>
+                    <th>Weight</th>
+                    <td id="specWeight">650 grams</td>
+                  </tr>
+                  <tr>
+                    <th>Artisan Origin</th>
+                    <td id="specOrigin">Moradabad, Uttar Pradesh</td>
+                  </tr>
+                  <tr>
+                    <th>Technique</th>
+                    <td id="specCraft">Lost-Wax Casting & Hand Burnishing</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 2: The Story & Heritage -->
+          <div class="pdp-accordion-item">
+            <button class="pdp-accordion-header" onclick="togglePdpAccordion(this)">
+              <span>HERITAGE & PROVENANCE</span>
+              <span class="acc-icon">+</span>
+            </button>
+            <div class="pdp-accordion-body">
+              <div class="pdp-accordion-content" id="pdpStory">
+                Inspired by South Indian temple sanctums where bells are rung to focus the mind and invite positive sacred resonance. In contemporary sanctuaries, its clean proportion rests quietly on mantels and consoles when at rest, and fills the room with calm sustained sound during ritual moments.
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 3: Living with Brass & Care -->
+          <div class="pdp-accordion-item">
+            <button class="pdp-accordion-header" onclick="togglePdpAccordion(this)">
+              <span>CARE & PATINA EVOLUTION</span>
+              <span class="acc-icon">+</span>
+            </button>
+            <div class="pdp-accordion-body">
+              <div class="pdp-accordion-content" id="pdpCare">
+                Wipe with a soft dry cloth. Brass naturally breathes and deepens into a warm antique patina with exposure to air and oil. If you prefer a brilliant mirror luster, rub gently with lemon and salt or Pitambari powder, rinse and dry immediately.
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 4: Shipping & Returns -->
+          <div class="pdp-accordion-item">
+            <button class="pdp-accordion-header" onclick="togglePdpAccordion(this)">
+              <span>SHIPPING & RETURNS</span>
+              <span class="acc-icon">+</span>
+            </button>
+            <div class="pdp-accordion-body">
+              <div class="pdp-accordion-content">
+                Dispatches within 24 to 48 hours via premium express couriers with real-time tracking. Complimentary shipping across India for all orders above ₹5,000. 7-day hassle-free replacement or exchange if damaged in transit.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CUSTOMER REVIEWS SECTION -->
+    <section class="pdp-reviews-section" id="reviews">
+      <div class="pdp-reviews-inner">
+        <div class="reviews-header-block">
+          <div>
+            <span class="kicker">TESTIMONIALS & REFLECTIONS</span>
+            <h2>CUSTOMER REVIEWS</h2>
+          </div>
+          <button class="btn-solid-dark" onclick="openReviewModal()">
+            <span>WRITE A REVIEW</span>
+            <svg class="svg-icon"><use href="#icon-arrow"></use></svg>
+          </button>
+        </div>
+
+        <!-- Rating Dashboard -->
+        <div class="reviews-dashboard">
+          <div class="score-summary-box">
+            <div class="big-rating-number" id="dashRatingScore">4.9</div>
+            <div class="pdp-stars" style="justify-content: center; margin-bottom: 8px;">
+              <svg class="svg-icon" style="width: 16px; height: 16px;"><use href="#icon-star"></use></svg>
+              <svg class="svg-icon" style="width: 16px; height: 16px;"><use href="#icon-star"></use></svg>
+              <svg class="svg-icon" style="width: 16px; height: 16px;"><use href="#icon-star"></use></svg>
+              <svg class="svg-icon" style="width: 16px; height: 16px;"><use href="#icon-star"></use></svg>
+              <svg class="svg-icon" style="width: 16px; height: 16px;"><use href="#icon-star"></use></svg>
+            </div>
+            <div style="font-size: 12px; color: var(--text-muted);" id="dashTotalReviews">Based on 28 verified collector reviews</div>
+          </div>
+
+          <div class="rating-breakdown-bars">
+            <div class="bar-row">
+              <span class="star-label">5 Stars</span>
+              <div class="bar-track"><div class="bar-fill" style="width: 88%;"></div></div>
+              <span class="bar-count" id="count5Star">24</span>
+            </div>
+            <div class="bar-row">
+              <span class="star-label">4 Stars</span>
+              <div class="bar-track"><div class="bar-fill" style="width: 12%;"></div></div>
+              <span class="bar-count" id="count4Star">4</span>
+            </div>
+            <div class="bar-row">
+              <span class="star-label">3 Stars</span>
+              <div class="bar-track"><div class="bar-fill" style="width: 0%;"></div></div>
+              <span class="bar-count">0</span>
+            </div>
+            <div class="bar-row">
+              <span class="star-label">2 Stars</span>
+              <div class="bar-track"><div class="bar-fill" style="width: 0%;"></div></div>
+              <span class="bar-count">0</span>
+            </div>
+            <div class="bar-row">
+              <span class="star-label">1 Star</span>
+              <div class="bar-track"><div class="bar-fill" style="width: 0%;"></div></div>
+              <span class="bar-count">0</span>
+            </div>
+          </div>
+
+          <div class="reviews-cta-box">
+            <p>Have you welcomed this piece into your sanctuary?</p>
+            <button class="btn-pill" style="font-size: 11px; padding: 10px 18px;" onclick="openReviewModal()">SHARE YOUR THOUGHTS</button>
+          </div>
+        </div>
+
+        <!-- Reviews List -->
+        <div class="reviews-feed" id="reviewsFeed">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SIMILAR PRODUCTS SECTION -->
+    <section class="pdp-similar-section">
+      <div class="similar-header">
+        <span class="kicker">COMPLETE YOUR SANCTUARY</span>
+        <h2>SIMILAR OBJECTS & PAIRINGS</h2>
+      </div>
+
+      <div class="similar-grid" id="similarGrid">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+    <!-- CORPORATE & CUSTOM ENQUIRY (PLACED IN THE LAST) -->
+    <section class="section-enquiry" id="enquiry">
+      <div class="enquiry-layout">
+        <div class="enquiry-intro">
+          <span class="kicker">CORPORATE & CUSTOM</span>
+          <h2>Let’s make something meaningful.</h2>
+          <p>Tell us what you are planning, and our team will come back with thoughtful recommendations, quantities, budgets and timelines.</p>
+          <p>We welcome requests for celebrations, hospitality, corporate gifting and one-of-a-kind commissions.</p>
+        </div>
+
+        <form class="enquiry-form" onsubmit="event.preventDefault(); showToast('Enquiry received. We will connect soon.'); this.reset();">
+          <div class="form-group">
+            <label for="name">NAME</label>
+            <input type="text" id="name" name="name" required placeholder="Your full name">
+          </div>
+
+          <div class="form-group">
+            <label for="email">EMAIL</label>
+            <input type="email" id="email" name="email" required placeholder="name@company.com">
+          </div>
+
+          <div class="form-group">
+            <label for="phone">PHONE</label>
+            <input type="tel" id="phone" name="phone" placeholder="+91 00000 00000">
+          </div>
+
+          <div class="form-group">
+            <label for="company">COMPANY</label>
+            <input type="text" id="company" name="company" placeholder="Organization name">
+          </div>
+
+          <div class="form-group">
+            <label for="quantity">QUANTITY</label>
+            <input type="text" id="quantity" name="quantity" placeholder="Estimated pieces">
+          </div>
+
+          <div class="form-group">
+            <label for="budget">BUDGET</label>
+            <input type="text" id="budget" name="budget" placeholder="Estimated budget">
+          </div>
+
+          <div class="form-group full-width">
+            <label for="timeline">TIMELINE</label>
+            <select id="timeline" name="timeline">
+              <option value="2-4 weeks">2–4 weeks</option>
+              <option value="1-2 months">1–2 months</option>
+              <option value="3+ months">3+ months</option>
+            </select>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="message">TELL US MORE</label>
+            <textarea id="message" name="message" rows="4" placeholder="Tell us about your occasion, requirements or ideas..."></textarea>
+          </div>
+
+          <div class="form-submit-row">
+            <button type="submit" class="btn-solid-dark">
+              <span>SEND ENQUIRY</span>
+              <svg class="svg-icon"><use href="#icon-arrow"></use></svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- WRITE REVIEW MODAL -->
+  <div class="review-modal" id="reviewModal">
+    <div class="review-modal-box">
+      <button class="review-modal-close" onclick="closeReviewModal()">&times;</button>
+      <span class="kicker">COLLECTOR EXPERIENCE</span>
+      <h2 style="font-family: var(--font-serif); font-size: 28px; margin-bottom: 8px;">Write a Review</h2>
+      <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 24px;">Share your experience with <strong id="modalObjName">This Object</strong> to help other collectors.</p>
+
+      <form id="writeReviewForm" onsubmit="submitCustomerReview(event)">
+        <label style="font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; display: block; margin-bottom: 8px;">OVERALL RATING</label>
+        <div class="star-rating-select" id="starRatingSelect">
+          <span class="star selected" data-value="1" onclick="setReviewRating(1)">★</span>
+          <span class="star selected" data-value="2" onclick="setReviewRating(2)">★</span>
+          <span class="star selected" data-value="3" onclick="setReviewRating(3)">★</span>
+          <span class="star selected" data-value="4" onclick="setReviewRating(4)">★</span>
+          <span class="star selected" data-value="5" onclick="setReviewRating(5)">★</span>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 16px;">
+          <label for="revAuthor">YOUR NAME</label>
+          <input type="text" id="revAuthor" required placeholder="e.g. Anandita Sen">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 16px;">
+          <label for="revLocation">CITY / LOCATION</label>
+          <input type="text" id="revLocation" required placeholder="e.g. Bangalore">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 16px;">
+          <label for="revTitle">HEADLINE / SUMMARY</label>
+          <input type="text" id="revTitle" required placeholder="e.g. Exquisite craftsmanship and resonance">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 24px;">
+          <label for="revComment">YOUR REVIEW</label>
+          <textarea id="revComment" rows="4" required placeholder="Describe the weight, material feel, finish, and ritual presence in your home..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-solid-dark" style="width: 100%;">
+          <span>SUBMIT VERIFIED REVIEW</span>
+          <svg class="svg-icon"><use href="#icon-arrow"></use></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Global Footer -->
+  <footer class="footer-global">
+    <div class="footer-main-grid">
+      <div class="footer-brand-col">
+        <h3 class="footer-logo">AALAYAM</h3>
+        <p class="tagline-italic">Aalayam — Temple of Art</p>
+        <p class="tagline-caps">OBJECTS OF HERITAGE.</p>
+      </div>
+
+      <div class="footer-nav-grid">
+        <div class="footer-col">
+          <h4>DISCOVER</h4>
+          <ul>
+            <li><a href="collection.html">Collection</a></li>
+            <li><a href="craft.html">Craft</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>CATEGORIES</h4>
+          <ul>
+            <li><a href="categories.html?filter=diyas">Diyas</a></li>
+            <li><a href="categories.html?filter=statues">Statues</a></li>
+            <li><a href="categories.html?filter=brass">Brass</a></li>
+            <li><a href="categories.html?filter=pooja">Pooja</a></li>
+            <li><a href="categories.html?filter=home">Home</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>HELP</h4>
+          <ul>
+            <li><a href="#enquiry">Contact</a></li>
+            <li><a href="craft.html#care">Shipping</a></li>
+            <li><a href="craft.html#care">Returns</a></li>
+            <li><a href="craft.html#care">Care</a></li>
+            <li><a href="about.html">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>FOLLOW</h4>
+          <ul>
+            <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.pinterest.com/" target="_blank" rel="noopener">Pinterest</a></li>
+            <li><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© AALAYAM</div>
+      <div class="legal-links">
+        <a href="about.html">PRIVACY</a>
+        <a href="about.html">TERMS</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // ----------------------------------------------------
+    // Product Detail Page Controller
+    // ----------------------------------------------------
+    let currentQty = 1;
+    let selectedRating = 5;
+    let activeProduct = null;
+
+    function getParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    function initPDP() {
+      const prodId = getParam('id') || '004';
+      activeProduct = getProductById(prodId);
+
+      // Metadata & Title
+      document.title = `${activeProduct.name} — AALAYAM Heritage Brass`;
+      const metaDesc = document.getElementById('pageMetaDesc');
+      if (metaDesc) metaDesc.content = activeProduct.desc;
+
+      // Breadcrumb
+      document.getElementById('breadCat').textContent = activeProduct.categoryLabel.toUpperCase();
+      document.getElementById('breadCat').href = `categories.html?filter=${activeProduct.category}`;
+      document.getElementById('breadName').textContent = activeProduct.name;
+
+      // Product Details
+      document.getElementById('pdpTitle').textContent = activeProduct.name;
+      document.getElementById('pdpCode').textContent = activeProduct.code;
+      document.getElementById('pdpBadge').textContent = activeProduct.badge;
+      document.getElementById('pdpPrice').textContent = `₹${activeProduct.price.toLocaleString('en-IN')}`;
+      document.getElementById('pdpOriginalPrice').textContent = `₹${activeProduct.originalPrice.toLocaleString('en-IN')}`;
+      
+      const savingsPct = Math.round(((activeProduct.originalPrice - activeProduct.price) / activeProduct.originalPrice) * 100);
+      document.getElementById('pdpSavings').textContent = `Save ${savingsPct}%`;
+
+      document.getElementById('pdpRatingCount').textContent = `${activeProduct.rating} (${activeProduct.reviewsCount} Verified Reviews)`;
+      document.getElementById('pdpDesc').textContent = activeProduct.desc;
+      document.getElementById('pdpOriginTag').textContent = `${activeProduct.origin.toUpperCase()} · INDIA`;
+      document.getElementById('modalObjName').textContent = activeProduct.name;
+
+      // Specifications
+      document.getElementById('specMaterial').textContent = activeProduct.material;
+      document.getElementById('specDimensions').textContent = activeProduct.dimensions;
+      document.getElementById('specWeight').textContent = activeProduct.weight;
+      document.getElementById('specOrigin').textContent = activeProduct.origin;
+      document.getElementById('specCraft').textContent = activeProduct.craft;
+      document.getElementById('pdpStory').textContent = activeProduct.story;
+      document.getElementById('pdpCare').textContent = activeProduct.care;
+
+      // Gallery Images
+      const mainImg = document.getElementById('pdpMainImage');
+      mainImg.src = activeProduct.images[0];
+      mainImg.alt = activeProduct.name;
+
+      const thumbsStrip = document.getElementById('pdpThumbsStrip');
+      thumbsStrip.innerHTML = '';
+      const mainVideo = document.getElementById('pdpMainVideo');
+
+      function showImage(url, activeThumb) {
+        if (mainVideo) {
+          mainVideo.pause();
+          mainVideo.style.display = 'none';
+        }
+        mainImg.style.display = 'block';
+        mainImg.src = url;
+        document.querySelectorAll('.pdp-thumb-item').forEach(t => t.classList.remove('active'));
+        if (activeThumb) activeThumb.classList.add('active');
+      }
+
+      function showVideo(videoUrl, activeThumb) {
+        mainImg.style.display = 'none';
+        if (mainVideo) {
+          mainVideo.style.display = 'block';
+          mainVideo.src = videoUrl;
+          mainVideo.play().catch(() => {});
+        }
+        document.querySelectorAll('.pdp-thumb-item').forEach(t => t.classList.remove('active'));
+        if (activeThumb) activeThumb.classList.add('active');
+      }
+
+      // Render Image Thumbs
+      activeProduct.images.forEach((imgUrl, idx) => {
+        const thumb = document.createElement('div');
+        thumb.className = `pdp-thumb-item ${idx === 0 ? 'active' : ''}`;
+        thumb.innerHTML = `<img src="${imgUrl}" alt="${activeProduct.name} View ${idx + 1}">`;
+        thumb.onclick = () => showImage(imgUrl, thumb);
+        thumbsStrip.appendChild(thumb);
+      });
+
+      // Render Video Thumb if available
+      if (activeProduct.video) {
+        const vThumb = document.createElement('div');
+        vThumb.className = 'pdp-thumb-item video-thumb';
+        vThumb.style.position = 'relative';
+        vThumb.innerHTML = `
+          <img src="${activeProduct.images[0]}" alt="${activeProduct.name} Video Preview">
+          <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 10px; font-weight: 700; letter-spacing: 0.1em;">
+            ▶ VIDEO
+          </div>
+        `;
+        vThumb.onclick = () => showVideo(activeProduct.video, vThumb);
+        thumbsStrip.appendChild(vThumb);
+      }
+
+      // Actions Wiring
+      document.getElementById('pdpAddBagBtn').onclick = () => {
+        for (let i = 0; i < currentQty; i++) {
+          addToCart({
+            id: activeProduct.id,
+            name: activeProduct.name,
+            code: activeProduct.code,
+            price: activeProduct.price,
+            image: activeProduct.images[0],
+            material: activeProduct.material
+          });
+        }
+      };
+
+      document.getElementById('pdpBuyNowBtn').onclick = () => {
+        for (let i = 0; i < currentQty; i++) {
+          addToCart({
+            id: activeProduct.id,
+            name: activeProduct.name,
+            code: activeProduct.code,
+            price: activeProduct.price,
+            image: activeProduct.images[0],
+            material: activeProduct.material
+          });
+        }
+        window.location.href = 'bag.html';
+      };
+
+      // Render Reviews & Similar Products
+      renderReviews(activeProduct);
+      renderSimilarProducts(activeProduct);
+    }
+
+    function adjustPdpQty(delta) {
+      currentQty = Math.max(1, currentQty + delta);
+      document.getElementById('pdpQtyVal').textContent = currentQty;
+    }
+
+    function togglePdpAccordion(header) {
+      const item = header.parentElement;
+      item.classList.toggle('active');
+    }
+
+    function toggleWishlist(btn) {
+      btn.classList.toggle('active');
+      const isActive = btn.classList.contains('active');
+      showToast(isActive ? 'Added to Wishlist' : 'Removed from Wishlist');
+    }
+
+    // ----------------------------------------------------
+    // Reviews Management
+    // ----------------------------------------------------
+    function renderReviews(product) {
+      document.getElementById('dashRatingScore').textContent = product.rating.toFixed(1);
+      document.getElementById('dashTotalReviews').textContent = `Based on ${product.reviewsCount} verified collector reviews`;
+
+      const feed = document.getElementById('reviewsFeed');
+      feed.innerHTML = '';
+
+      if (!product.reviews || product.reviews.length === 0) {
+        feed.innerHTML = '<div style="padding: 24px; text-align: center; color: var(--text-muted);">No reviews submitted yet. Be the first to share your reflection.</div>';
+        return;
+      }
+
+      product.reviews.forEach(rev => {
+        const card = document.createElement('div');
+        card.className = 'review-card';
+        
+        let starsHtml = '';
+        for (let i = 0; i < 5; i++) {
+          starsHtml += i < rev.rating ? '★' : '☆';
+        }
+
+        card.innerHTML = `
+          <div class="review-card-meta">
+            <div class="reviewer-profile">
+              <span class="reviewer-name">${rev.author}</span>
+              ${rev.location ? `<span style="color: var(--text-muted); font-size: 11px;">(${rev.location})</span>` : ''}
+              ${rev.verified ? `<span class="verified-pill">VERIFIED COLLECTOR</span>` : ''}
+            </div>
+            <span class="review-date">${rev.date}</span>
+          </div>
+          <div class="review-stars">${starsHtml}</div>
+          <h3 class="review-title">${rev.title}</h3>
+          <p class="review-text">${rev.comment}</p>
+          <div class="review-helpful-row">
+            <span>Was this reflection helpful?</span>
+            <button class="helpful-btn" onclick="upvoteHelpful(this, ${rev.helpfulCount})">Helpful (${rev.helpfulCount})</button>
+          </div>
+        `;
+        feed.appendChild(card);
+      });
+    }
+
+    function upvoteHelpful(btn, currentCount) {
+      btn.disabled = true;
+      btn.textContent = `Helpful (${currentCount + 1})`;
+      btn.style.borderColor = 'var(--color-gold)';
+      showToast('Thank you for your feedback');
+    }
+
+    function openReviewModal() {
+      document.getElementById('reviewModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeReviewModal() {
+      document.getElementById('reviewModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function setReviewRating(val) {
+      selectedRating = val;
+      const stars = document.querySelectorAll('#starRatingSelect .star');
+      stars.forEach((s, idx) => {
+        s.classList.toggle('selected', idx < val);
+      });
+    }
+
+    function submitCustomerReview(e) {
+      e.preventDefault();
+      const author = document.getElementById('revAuthor').value;
+      const location = document.getElementById('revLocation').value;
+      const title = document.getElementById('revTitle').value;
+      const comment = document.getElementById('revComment').value;
+
+      const newReview = {
+        id: `rev-${Date.now()}`,
+        author: author,
+        location: location,
+        rating: selectedRating,
+        date: 'Today',
+        title: title,
+        comment: comment,
+        verified: true,
+        helpfulCount: 0
+      };
+
+      if (!activeProduct.reviews) activeProduct.reviews = [];
+      activeProduct.reviews.unshift(newReview);
+      activeProduct.reviewsCount += 1;
+
+      renderReviews(activeProduct);
+      closeReviewModal();
+      document.getElementById('writeReviewForm').reset();
+      showToast('Your review has been submitted and published!');
+    }
+
+    // ----------------------------------------------------
+    // Similar Products Recommendations
+    // ----------------------------------------------------
+    function renderSimilarProducts(product) {
+      const grid = document.getElementById('similarGrid');
+      grid.innerHTML = '';
+
+      const similarIds = product.similarIds || ['004', '005', '006', '008'];
+      similarIds.slice(0, 4).forEach(id => {
+        const item = getProductById(id);
+        if (!item || item.id === product.id) return;
+
+        const card = document.createElement('div');
+        card.className = 'ecom-card';
+        card.innerHTML = `
+          <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)" title="Save to Wishlist">
+            <svg class="svg-icon"><use href="#icon-heart"></use></svg>
+          </button>
+          <a href="product.html?id=${item.id}" class="card-img-wrap" style="display: block; text-decoration: none;">
+            <img src="${item.images[0]}" alt="${item.name}" loading="lazy">
+          </a>
+          <div class="card-body">
+            <div class="card-meta-row">
+              <span class="card-code">${item.code}</span>
+              <div class="card-rating">
+                <svg class="svg-icon" style="width: 11px; height: 11px;"><use href="#icon-star"></use></svg>
+                <span>${item.rating}</span>
+                <span class="count">(${item.reviewsCount})</span>
+              </div>
+            </div>
+            <h3 class="card-title">
+              <a href="product.html?id=${item.id}" style="color: inherit; text-decoration: none;">${item.name}</a>
+            </h3>
+            <p class="card-desc">${item.desc}</p>
+            <span class="card-material-badge">${item.material}</span>
+            <div class="card-footer-row">
+              <div class="price-box">
+                <span class="current-price">₹${item.price.toLocaleString('en-IN')}</span>
+                <span class="original-price">₹${item.originalPrice.toLocaleString('en-IN')}</span>
+              </div>
+              <button class="ecom-add-btn" onclick="event.stopPropagation(); addToCart({id: '${item.id}', name: '${item.name}', code: '${item.code}', price: ${item.price}, image: '${item.images[0]}', material: '${item.material}'})">
+                <span>+ ADD TO BAG</span>
+              </button>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', initPDP);
+  </script>
+</body>
+</html>
