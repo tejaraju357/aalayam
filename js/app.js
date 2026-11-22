@@ -416,3 +416,41 @@ function initCardClickHandlers() {
     }
   });
 }
+
+function handleCorporateEnquiry(event, form) {
+  event.preventDefault();
+  const name = form.querySelector('#name')?.value || 'Sanctuary Client';
+  const email = form.querySelector('#email')?.value || '';
+  const phone = form.querySelector('#phone')?.value || '';
+  const company = form.querySelector('#company')?.value || '';
+  const quantity = form.querySelector('#quantity')?.value || 'Custom Pieces';
+  const budget = form.querySelector('#budget')?.value || 'Bespoke';
+  const timeline = form.querySelector('#timeline')?.value || 'Standard';
+  const message = form.querySelector('#message')?.value || 'Custom brass commission requested.';
+
+  const newEnq = {
+    id: 'ENQ-' + Math.floor(100 + Math.random() * 900),
+    date: new Date().toISOString().slice(0, 10),
+    name: name,
+    email: email,
+    company: company,
+    occasion: 'Bespoke Sanctuary Commission',
+    quantity: quantity,
+    budget: budget,
+    message: `${message} (Timeline: ${timeline}, Phone: ${phone})`,
+    status: 'New'
+  };
+
+  let list = [];
+  try {
+    const existing = localStorage.getItem('aalayam_enquiries');
+    list = existing ? JSON.parse(existing) : [];
+  } catch (e) {
+    list = [];
+  }
+  list.unshift(newEnq);
+  localStorage.setItem('aalayam_enquiries', JSON.stringify(list));
+
+  showToast('Sacred commission inquiry received. Our master artisan studio will connect shortly.');
+  form.reset();
+}

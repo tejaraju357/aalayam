@@ -1536,7 +1536,7 @@
           <p>We welcome requests for celebrations, hospitality, corporate gifting and one-of-a-kind commissions.</p>
         </div>
 
-        <form class="enquiry-form" onsubmit="event.preventDefault(); showToast('Enquiry received. We will connect soon.'); this.reset();">
+        <form class="enquiry-form" onsubmit="handleCorporateEnquiry(event, this)">
           <div class="form-group">
             <label for="name">NAME</label>
             <input type="text" id="name" name="name" required placeholder="Your full name">
@@ -1620,6 +1620,7 @@
         <li><a href="craft.html#care">RETURNS</a></li>
         <li><a href="craft.html#care">BRASS CARE</a></li>
         <li><a href="about.html">FAQ</a></li>
+            <li><a href="admin.html" style="color: var(--color-gold); font-weight: 600;">Admin Studio ⚙</a></li>
       </ul>
     </section>
   </main>
@@ -1663,6 +1664,7 @@
             <li><a href="craft.html#care">Returns</a></li>
             <li><a href="craft.html#care">Care</a></li>
             <li><a href="about.html">FAQ</a></li>
+            <li><a href="admin.html" style="color: var(--color-gold); font-weight: 600;">Admin Studio ⚙</a></li>
           </ul>
         </div>
 

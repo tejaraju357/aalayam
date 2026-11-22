@@ -434,6 +434,7 @@
             <li><a href="craft.html#care">Returns</a></li>
             <li><a href="craft.html#care">Care</a></li>
             <li><a href="about.html">FAQ</a></li>
+            <li><a href="admin.html" style="color: var(--color-gold); font-weight: 600;">Admin Studio ⚙</a></li>
           </ul>
         </div>
 
@@ -517,7 +518,48 @@
     }
 
     function handleCheckout() {
-      alert('Thank you for choosing AALAYAM. Preparing secure checkout experience...');
+      const cart = getCart();
+      if (!cart || cart.length === 0) {
+        alert('Your sanctuary bag is empty.');
+        return;
+      }
+
+      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      const orderId = 'AAL-' + Math.floor(1000 + Math.random() * 9000);
+      const now = new Date().toISOString().slice(0, 10);
+
+      const newOrder = {
+        id: orderId,
+        date: now,
+        customer: {
+          name: 'Sanctuary Patron',
+          email: 'patron@aalayam.luxury',
+          phone: '+91 98400 11223',
+          address: 'Temple View Sanctum, Bangalore, Karnataka'
+        },
+        items: cart.map(i => ({ id: i.id, name: i.name, price: i.price, qty: i.quantity })),
+        total: subtotal,
+        paymentStatus: 'Paid',
+        paymentMethod: 'UPI / Card',
+        status: 'Processing',
+        trackingNumber: 'PENDING-AWB'
+      };
+
+      let orders = [];
+      try {
+        const existing = localStorage.getItem('aalayam_orders');
+        orders = existing ? JSON.parse(existing) : [];
+      } catch (e) {
+        orders = [];
+      }
+      orders.unshift(newOrder);
+      localStorage.setItem('aalayam_orders', JSON.stringify(orders));
+
+      // Clear cart
+      saveCart([]);
+      renderBagPage();
+
+      alert(`Thank you for bringing AALAYAM home! Order #${orderId} for ₹${subtotal.toLocaleString('en-IN')} has been placed successfully and recorded in the Studio Admin Console.`);
     }
 
     document.addEventListener('DOMContentLoaded', () => {

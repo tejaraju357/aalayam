@@ -569,24 +569,57 @@ const PRODUCTS = {
   }
 };
 
+function getLiveProductsMap() {
+  try {
+    const custom = localStorage.getItem('aalayam_products_custom');
+    if (custom) {
+      return JSON.parse(custom);
+    }
+  } catch (e) {
+    console.warn('Error reading aalayam_products_custom from localStorage', e);
+  }
+  return PRODUCTS;
+}
+
 function getProductById(id) {
-  return PRODUCTS[id] || PRODUCTS['004'];
+  const map = getLiveProductsMap();
+  return map[id] || PRODUCTS[id] || Object.values(map)[0];
 }
 
 function getAllProducts() {
-  return Object.values(PRODUCTS);
+  const map = getLiveProductsMap();
+  return Object.values(map);
+}
+
+function saveProductToStorage(product) {
+  const map = Object.assign({}, getLiveProductsMap());
+  map[product.id] = product;
+  localStorage.setItem('aalayam_products_custom', JSON.stringify(map));
+  return map;
+}
+
+function deleteProductFromStorage(id) {
+  const map = Object.assign({}, getLiveProductsMap());
+  delete map[id];
+  localStorage.setItem('aalayam_products_custom', JSON.stringify(map));
+  return map;
+}
+
+function resetProductsToDefault() {
+  localStorage.removeItem('aalayam_products_custom');
+  return PRODUCTS;
 }
 
 function searchProducts(query) {
   if (!query || !query.trim()) return [];
   const q = query.toLowerCase().trim();
   return getAllProducts().filter(p => {
-    return p.name.toLowerCase().includes(q) ||
-           p.category.toLowerCase().includes(q) ||
-           p.categoryLabel.toLowerCase().includes(q) ||
-           p.desc.toLowerCase().includes(q) ||
-           p.material.toLowerCase().includes(q) ||
-           p.origin.toLowerCase().includes(q);
+    return (p.name && p.name.toLowerCase().includes(q)) ||
+           (p.category && p.category.toLowerCase().includes(q)) ||
+           (p.categoryLabel && p.categoryLabel.toLowerCase().includes(q)) ||
+           (p.desc && p.desc.toLowerCase().includes(q)) ||
+           (p.material && p.material.toLowerCase().includes(q)) ||
+           (p.origin && p.origin.toLowerCase().includes(q));
   });
 }
 
